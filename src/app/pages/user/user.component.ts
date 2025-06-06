@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { User } from '../../models/User';
+import { UserModel } from '../../model/User';
 import { UserService } from '../../services/user/user.service';
 import { CommonModule } from '@angular/common';
 
@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './user.component.css'
 })
 export class UserComponent {
-  users: User[] = [];
+  users: UserModel[] = [];
 
   constructor(private userService: UserService) {}
 
