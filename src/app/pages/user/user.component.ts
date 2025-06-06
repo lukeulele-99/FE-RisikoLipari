@@ -3,7 +3,7 @@ import { UserModel } from '../../model/User';
 import { UserService } from '../../services/user/user.service';
 import { CommonModule } from '@angular/common';
 import { UserDTO } from '../../model/UserDTO';
-import { error } from 'console';
+
 
 @Component({
   standalone: true,
@@ -31,7 +31,7 @@ export class UserComponent implements OnInit {
           this.users = [];
         }
       },
-      error: () => {
+      error: (error) => {
         console.error('error: ', error)
         this.users = [];
       }

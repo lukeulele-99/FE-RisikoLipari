@@ -1,3 +1,10 @@
-<app-navbar></app-navbar>
-<app-map></app-map>
-<app-company></app-company>
+
+
+Game:
+<ul *ngFor="let game of games">
+    <li>
+        {{game.score}}
+        {{game.status}}
+        {{game.id_user}}
+    </li>
+</ul>
