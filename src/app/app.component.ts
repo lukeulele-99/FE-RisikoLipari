@@ -6,11 +6,10 @@ import { CompanyComponent } from "./company/company.component";
 import { UserComponent } from "./pages/user/user.component";
 import { TutorialComponent } from './pages/tutorial/tutorial.component';
 import { RulesComponent } from './pages/rules/rules.component';
-import { AuthenticationComponent } from "./authentication/authentication.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NavbarComponent, MapComponent, CompanyComponent, UserComponent, TutorialComponent, RulesComponent, AuthenticationComponent],
+  imports: [RouterOutlet, NavbarComponent, MapComponent, CompanyComponent, UserComponent, TutorialComponent, RulesComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

@@ -4,10 +4,9 @@ import { GameComponent } from './pages/game/game.component';
 import { AppComponent } from './app.component';
 import { RulesComponent } from './pages/rules/rules.component';
 import { TutorialComponent } from './pages/tutorial/tutorial.component';
-import { AuthenticationComponent } from './authentication/authentication.component';
 
 export const routes: Routes = [
-    {path: '', component: AuthenticationComponent},
+    {path: '', component: UserComponent},
     {path: 'game', component: GameComponent},
     {path: 'user', component: UserComponent},
     {path: 'rules', component: RulesComponent},
