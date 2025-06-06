@@ -6,7 +6,7 @@ import { RulesComponent } from './pages/rules/rules.component';
 import { TutorialComponent } from './pages/tutorial/tutorial.component';
 
 export const routes: Routes = [
-    {path: '', component: UserComponent},
+    {path: '', redirectTo: 'user', pathMatch: 'full'},
     {path: 'game', component: GameComponent},
     {path: 'user', component: UserComponent},
     {path: 'rules', component: RulesComponent},
