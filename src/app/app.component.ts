@@ -4,10 +4,12 @@ import { NavbarComponent } from "./navbar/navbar.component";
 import { MapComponent } from "./map/map.component";
 import { CompanyComponent } from "./company/company.component";
 import { UserComponent } from "./pages/user/user.component";
+import { TutorialComponent } from './pages/tutorial/tutorial.component';
+import { RulesComponent } from './pages/rules/rules.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NavbarComponent, MapComponent, CompanyComponent, UserComponent],
+  imports: [RouterOutlet, NavbarComponent, MapComponent, CompanyComponent, UserComponent, TutorialComponent, RulesComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
