@@ -9,7 +9,7 @@ import { Response } from '../../Response';
 })
 export class CompanyService {
 
-  private getUrlComp = 'http://localhost:8080/api/company/';
+  private getUrlComp = 'http://localhost:8080/api/company';
 
   companyUpdatedSubject = new BehaviorSubject<any>(null);
 
@@ -17,5 +17,9 @@ export class CompanyService {
 
   getCompanies(): Observable<Response<CompanyDTO[]>> {
     return this.http.get<Response<CompanyDTO[]>>(this.getUrlComp);
+  }
+
+  getCompanyById(id: number): Observable<CompanyDTO> {
+    return this.http.get<CompanyDTO>(`${this.getUrlComp}/${id}`);
   }
 }
