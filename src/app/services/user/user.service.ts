@@ -10,9 +10,9 @@ import { UserDTO } from '../../model/UserDTO';
 })
 export class UserService {
 
-  private apiUrl = 'http://localhost:8080/api/users';
+  private getUrlUsers = 'http://localhost:8080/api/users';
 
-  private postUrl = 'http://localhost:8080/api/users/new';
+  private postUrlUsers = 'http://localhost:8080/api/users/new';
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -25,11 +25,11 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   getUsers(): Observable<Response<UserDTO[]>> {
-    return this.http.get<Response<UserDTO[]>>(this.apiUrl);
+    return this.http.get<Response<UserDTO[]>>(this.getUrlUsers);
   }
 
   addUser(userDTO: UserDTO): Observable<Response<UserDTO[]>> {
-    return this.http.post<Response<UserDTO[]>>(this.postUrl, userDTO, this.httpOptions)
+    return this.http.post<Response<UserDTO[]>>(this.postUrlUsers, userDTO, this.httpOptions)
   }
 
 
