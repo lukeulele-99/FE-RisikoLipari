@@ -1,1 +1,6 @@
-<p>region works!</p>
+<h2>Elenco Regioni</h2>
+<ul>
+  <li *ngFor="let region of regions">
+    {{ region.name }} - {{ region.description }}
+  </li>
+</ul>
