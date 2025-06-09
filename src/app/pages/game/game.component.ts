@@ -6,10 +6,11 @@ import { GameModel } from '../../model/Game';
 import { GameService } from '../../services/game/game.service';
 import { GameDTO } from '../../model/GameDTO';
 import { CommonModule } from '@angular/common';
+import { EmployeeComponent } from "../../employee/employee.component";
 
 @Component({
   selector: 'app-game',
-  imports: [NavbarComponent, MapComponent, CompanyComponent, CommonModule],
+  imports: [NavbarComponent, MapComponent, CompanyComponent, CommonModule, EmployeeComponent],
   templateUrl: './game.component.html',
   styleUrl: './game.component.css'
 })
