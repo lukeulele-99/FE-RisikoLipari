@@ -1,19 +1,19 @@
 Users:
 <ul *ngFor="let user of users">
     <li>
-        {{user.username}}
+        {{user.username}}   //da togliere dopo
     </li>
 </ul>
 <div class="register-container">
     <h2>Registrazione Utente</h2>
 
-    <form>
+    <form [formGroup]="userForm">
         <div class="form-group">
             <label for="email">Email:</label>
-            <input id="email" name="email" type="email" required />
+            <input id="email" formControlName="email" name="email" type="email" required />
         </div>
 
-        <button type="submit">Registrati</button>
+        <button type="submit" (click)="addUser()">Registrati</button>
         <button type="submit">Avvia partita</button>
     </form>
 </div>

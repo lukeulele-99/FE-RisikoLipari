@@ -3,19 +3,28 @@ import { UserModel } from '../../model/User';
 import { UserService } from '../../services/user/user.service';
 import { CommonModule } from '@angular/common';
 import { UserDTO } from '../../model/UserDTO';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 
 @Component({
   standalone: true,
   selector: 'app-user',
-  imports: [CommonModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './user.component.html',
   styleUrl: './user.component.css'
 })
 export class UserComponent implements OnInit {
   users: UserModel[] = [];
+  userForm: FormGroup;
 
-  constructor(private userService: UserService) { }
+  constructor(private fb: FormBuilder, private userService: UserService) { 
+    this.userForm = this.fb.group({
+        email: ['', [Validators.required, Validators.email]]
+    });
+
+  }
+
+  
 
   ngOnInit(): void {
     this.userService.usersUpdatedSubject.subscribe((usersDto) => {
@@ -40,8 +49,30 @@ export class UserComponent implements OnInit {
 
   private mapUserDtoToUserModel(dto: UserDTO): UserModel {
     return {
-      id: dto.userId,
+      id: dto.userId ?? 0,
       username: dto.username
     };
   }
+
+
+  addUser(): void {
+    if (this.userForm.valid) {
+      const newUser: UserDTO = {
+        username: this.userForm.value.email
+      };
+
+      this.userService.addUser(newUser).subscribe({
+        next: (response) => {
+          console.log('User created ', response);
+          this.userForm.reset();
+        },
+        error: (err) => {
+          console.error("Error creating user ", err);
+        }
+      });
+    } else {
+      console.warn('Form non valido!');
+    }
+  }
+
 }
