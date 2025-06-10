@@ -1,3 +1,4 @@
+//interfaccia per passaggio dati
 import { UserModel } from "./User";
 
 export interface GameModel {

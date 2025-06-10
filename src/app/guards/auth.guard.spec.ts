@@ -1,3 +1,5 @@
+//IN CASO SERVA LA GUARD, VERIFICA L'AUTHENTICATION
+
 /* import { TestBed } from '@angular/core/testing';
 import { CanActivateFn } from '@angular/router';
 

@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class NavbarComponent {
     constructor(private router: Router) {}
 
+  //Route per i bottoni richiamati nel btn con eventClick
   goRules(): void {
     this.router.navigate(['/rules']);
   }
