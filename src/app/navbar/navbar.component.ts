@@ -22,6 +22,12 @@ export class NavbarComponent {
   goUser(): void {
     this.router.navigate(['/user']);
   }
+
+   goGame(): void {
+    this.router.navigate(['/game']);
+  }
+
+
 }
 
-
+ 
