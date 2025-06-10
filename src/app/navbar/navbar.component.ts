@@ -22,6 +22,8 @@ export class NavbarComponent {
   goUser(): void {
     this.router.navigate(['/user']);
   }
+
+  
 }
 
 
