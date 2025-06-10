@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Response } from '../../Response';
 import { UserModel } from '../../model/User';
-import { UserDTO } from '../../model/UserDTO';
+
 
 @Injectable({
   providedIn: 'root'
@@ -24,12 +24,12 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  getUsers(): Observable<Response<UserDTO[]>> {
-    return this.http.get<Response<UserDTO[]>>(this.getUrlUsers);
+  getUsers(): Observable<Response<UserModel[]>> {
+    return this.http.get<Response<UserModel[]>>(this.getUrlUsers);
   }
 
-  addUser(userDTO: UserDTO): Observable<Response<UserDTO[]>> {
-    return this.http.post<Response<UserDTO[]>>(this.postUrlUsers, userDTO, this.httpOptions)
+  addUser(UserModel: UserModel): Observable<Response<UserModel[]>> {
+    return this.http.post<Response<UserModel[]>>(this.postUrlUsers, UserModel, this.httpOptions)
   }
 
 

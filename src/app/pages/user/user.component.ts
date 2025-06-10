@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { UserModel } from '../../model/User';
 import { UserService } from '../../services/user/user.service';
 import { CommonModule } from '@angular/common';
-import { UserDTO } from '../../model/UserDTO';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 
@@ -27,15 +26,15 @@ export class UserComponent implements OnInit {
   
 
   ngOnInit(): void {
-    this.userService.usersUpdatedSubject.subscribe((usersDto) => {
-      this.users = usersDto ? usersDto.map((dto: UserDTO) => this.mapUserDtoToUserModel(dto)) : [];
-    });
+    //this.userService.usersUpdatedSubject.subscribe((usersDto) => {
+      //this.users = usersDto ? usersDto.map((dto: UserDTO) => this.mapUserDtoToUserModel(dto)) : [];
+    //});
 
     this.userService.getUsers().subscribe({
       next: (response) => {
         console.log('response', response)
         if (Array.isArray(response) && response.length > 0) {
-          this.users = response.map(dto => this.mapUserDtoToUserModel(dto));
+          this.users = response;
         } else {
           this.users = [];
         }
@@ -47,17 +46,13 @@ export class UserComponent implements OnInit {
     });
   }
 
-  private mapUserDtoToUserModel(dto: UserDTO): UserModel {
-    return {
-      id: dto.userId ?? 0,
-      username: dto.username
-    };
-  }
+ 
 
 
   addUser(): void {
     if (this.userForm.valid) {
-      const newUser: UserDTO = {
+      const newUser: UserModel = {
+        id: 0, 
         username: this.userForm.value.email
       };
 
