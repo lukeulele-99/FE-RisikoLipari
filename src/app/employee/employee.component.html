@@ -1,5 +1,3 @@
-
-
 <div class="tabella-container">
     <table>
         <thead>
@@ -10,9 +8,9 @@
                 <th>DISPONIBILI</th>
             </tr>
         </thead>
-        <tbody>
-            <tr *ngFor="let employee of employees">
-                <th>MANAGER</th> //TODO distinguere i ruoli
+        <tbody *ngFor="let employee of employees">
+            <tr *ngIf="employee.role == 'Manager'">
+                <th>MANAGER</th> 
                 <td>
                     {{employee.total}}
                 </td>
@@ -23,19 +21,29 @@
                     {{employee.available}}
                 </td>
             </tr>
-            <tr *ngFor="let employee of employees">
+            <tr *ngIf="employee.role == 'Senior'">
                 <th>SENIOR</th>
                 <td>
                     {{employee.total}}
                 </td>
-                <td>0</td>
-                <td>0</td>
+                <td>
+                    {{employee.occupied}}
+                </td>
+                <td>
+                    {{employee.available}}
+                </td>
             </tr>
-            <tr>
+            <tr *ngIf="employee.role == 'Consultant'">
                 <th>CONSULTANT</th>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
+                <td>
+                    {{employee.total}}
+                </td>
+                <td>
+                    {{employee.occupied}}
+                </td>
+                <td>
+                    {{employee.available}}
+                </td>
             </tr>
         </tbody>
     </table>
