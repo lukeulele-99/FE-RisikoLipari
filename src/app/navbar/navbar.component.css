@@ -43,4 +43,5 @@
 
 #title-nav:hover {
   cursor: pointer;
+  text-decoration-line: underline;
 }

@@ -27,7 +27,9 @@ export class NavbarComponent {
     this.router.navigate(['/game']);
   }
 
-
+  goEmployes(): void {
+    this.router.navigate(['/employee']);
+  }
 }
 
  
