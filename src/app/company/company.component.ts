@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CompanyModel } from '../model/Company';
 import { CompanyService } from '../services/company/company.service';
-import { CompanyDTO } from '../model/CompanyDTO';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -10,21 +9,24 @@ import { CommonModule } from '@angular/common';
   templateUrl: './company.component.html',
   styleUrl: './company.component.css'
 })
-export class CompanyComponent {
+export class CompanyComponent implements OnInit{
   compa: CompanyModel[] = [];
 
   constructor(private companyService: CompanyService) {}
+  ngOnInit(): void {
+    this.getCompanies();
+  }
 
   getCompanies(): void {
-    this.companyService.companyUpdatedSubject.subscribe((companyDto) => {
-      this.compa = companyDto ? companyDto.map((dto: CompanyDTO) => this.mapCompanyDtoToCompanyModel(dto)) : [];
-    });
+   // this.companyService.companyUpdatedSubject.subscribe((companyDto) => {
+    //  this.compa = companyDto ? companyDto.map((dto: CompanyDTO) => this.mapCompanyDtoToCompanyModel(dto)) : [];
+   // });
 
     this.companyService.getCompanies().subscribe({
       next: (response) => {
         console.log('response ', response);
         if(Array.isArray(response) && response.length > 0) {
-          this.compa = response.map(dto => this.mapCompanyDtoToCompanyModel(dto));
+          this.compa = response;
         } else {
           this.compa = [];
         }
@@ -36,12 +38,5 @@ export class CompanyComponent {
     })
   }
 
-  private mapCompanyDtoToCompanyModel(dto: CompanyDTO): CompanyModel {
-      return {
-        id: dto.id ?? 0,
-        id_region: dto.id_region,
-        name: dto.name,
-        status: dto.status
-      };
-    }
+ 
 }
