@@ -1,5 +1,5 @@
 //interfaccia per passaggio dati
 export interface UserModel {
-    id: number,
+    id?: number,
     username: string
 }

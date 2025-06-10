@@ -52,7 +52,7 @@ export class UserComponent implements OnInit {
   addUser(): void {
     if (this.userForm.valid) {
       const newUser: UserModel = {
-        id: 0, 
+        
         username: this.userForm.value.email
       };
 
