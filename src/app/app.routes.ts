@@ -8,6 +8,8 @@ import { EmployeeComponent } from './employee/employee.component';
 import { CompanyComponent } from './company/company.component';
 //import { authGuard } from './guards/auth.guard';
 
+
+//GESTIONE DI TUTTE LE ROUTE DEL PROGETTO
 export const routes: Routes = [
     { path: '', redirectTo: 'user', pathMatch: 'full' },
     { path: 'game', component: GameComponent }, //canActivate: [authGuard] },

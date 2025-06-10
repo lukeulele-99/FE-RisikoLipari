@@ -22,6 +22,8 @@ export class CompanyComponent implements OnInit{
     //  this.compa = companyDto ? companyDto.map((dto: CompanyDTO) => this.mapCompanyDtoToCompanyModel(dto)) : [];
    // });
 
+
+   // GET DELLE COMPANIES CON SUBSCRIBE 
     this.companyService.getCompanies().subscribe({
       next: (response) => {
         console.log('response ', response);

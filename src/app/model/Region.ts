@@ -1,3 +1,4 @@
+//interfaccia per passaggio dati
 import { CompanyModel } from "./Company";
 
 export interface RegionModel {

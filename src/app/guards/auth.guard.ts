@@ -1,3 +1,5 @@
+//IN CASO SERVA LA GUARD, VERIFICA L'AUTHENTICATION
+
 /* import { CanActivateFn, Router } from '@angular/router';
 import { inject } from '@angular/core';
 import { AuthService } from '../services/auth.service';

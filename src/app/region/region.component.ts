@@ -13,6 +13,8 @@ export class RegionComponent implements OnInit {
 
   constructor(private regionService: RegionService) {}
 
+  //Subscribe delle regioni con generazione dell'errore e response 
+  
   ngOnInit(): void {
     this.regionService.getRegions().subscribe({
       next: (res) => {
