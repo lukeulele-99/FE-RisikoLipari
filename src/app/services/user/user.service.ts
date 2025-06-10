@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Response } from '../../Response';
 import { UserModel } from '../../model/User';
+import { GameModel } from '../../model/Game';
 
 
 @Injectable({
@@ -13,6 +14,8 @@ export class UserService {
   private getUrlUsers = 'http://localhost:8080/api/users';
 
   private postUrlUsers = 'http://localhost:8080/api/users/new';
+
+  private createUrlGame = 'http://localhost:8080/api/game';
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -30,6 +33,10 @@ export class UserService {
 
   addUser(UserModel: UserModel): Observable<Response<UserModel[]>> {
     return this.http.post<Response<UserModel[]>>(this.postUrlUsers, UserModel, this.httpOptions)
+  }
+
+  createGame(GameModel: GameModel): Observable<Response<GameModel[]>> {
+    return this.http.post<Response<GameModel[]>>(this.createUrlGame, GameModel);
   }
 
 

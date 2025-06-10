@@ -3,6 +3,7 @@ import { UserModel } from '../../model/User';
 import { UserService } from '../../services/user/user.service';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { GameModel } from '../../model/Game';
 
 
 @Component({
@@ -70,4 +71,24 @@ export class UserComponent implements OnInit {
     }
   }
 
+  createGame(): void {
+    const newGame: GameModel = {
+      id: 0,
+      score: 0,
+      status: '',
+      id_user: this.users.length > 0 ? this.users[0] : { username: '', }
+    };
+
+    this.userService.createGame(newGame).subscribe({
+      next: (response) => {
+        console.log('Game created ', response);
+      },
+      error: (error) => {
+        console.error('Error ', error);
+      }
+    });
+  }
+
 }
+
+
