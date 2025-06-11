@@ -1,10 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AppComponent],
+      schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
   });
 
@@ -20,10 +22,15 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('FE-Risiko-Lipari');
   });
 
-  it('should render title', () => {
+  it('should render navbar and router outlet', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, FE-Risiko-Lipari');
+    
+    // Verifica che ci sia il componente navbar
+    expect(compiled.querySelector('app-navbar')).toBeTruthy();
+    
+    // Verifica che ci sia il router outlet
+    expect(compiled.querySelector('router-outlet')).toBeTruthy();
   });
 });
