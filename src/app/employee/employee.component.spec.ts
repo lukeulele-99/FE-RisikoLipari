@@ -1,23 +1,34 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { Employee } from '../model/Employee';
+import { EmployeeService } from '../services/employee/employee.service';
 
-import { EmployeeComponent } from './employee.component';
+@Component({
+  selector: 'app-employee',
+  standalone: true,  // AGGIUNTO STANDALONE
+  imports: [CommonModule],
+  templateUrl: './employee.component.html',
+  styleUrl: './employee.component.css'
+})
+export class EmployeeComponent implements OnInit{
+  employees : Employee[] = [];
 
-describe('EmployeeComponent', () => {
-  let component: EmployeeComponent;
-  let fixture: ComponentFixture<EmployeeComponent>;
+  constructor(private employeeService: EmployeeService) {}
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [EmployeeComponent]
-    })
-    .compileComponents();
-
-    fixture = TestBed.createComponent(EmployeeComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+  ngOnInit(): void {
+      this.employeeService.getEmployee().subscribe({
+        next: (response) => {
+        console.log('response', response)
+        if (Array.isArray(response) && response.length > 0) {
+          this.employees = response;
+        } else {
+          this.employees = [];
+        }
+      },
+      error : (error) => {
+        console.error('Error ', error);
+        this.employees = [];
+      }
+      });
+  }
+}
