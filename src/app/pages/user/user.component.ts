@@ -72,11 +72,15 @@ export class UserComponent implements OnInit {
   }
 
   createGame(): void {
+    if (this.users.length === 0) {
+      console.warn('No users available to assign to the game.');
+      return;
+    }
     const newGame: GameModel = {
       id: 0,
       score: 0,
-      status: '',
-      id_user: this.users.length > 0 ? this.users[0] : { username: '', }
+      status: 'On going',
+      id_user: this.users[0] // Assign the first user; adjust as needed
     };
 
     this.userService.createGame(newGame).subscribe({
