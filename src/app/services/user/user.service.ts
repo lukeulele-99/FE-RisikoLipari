@@ -15,7 +15,6 @@ export class UserService {
 
   private postUrlUsers = 'http://localhost:8080/api/users/new';
 
-  private createUrlGame = 'http://localhost:8080/api/game';
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -35,9 +34,6 @@ export class UserService {
     return this.http.post<Response<UserModel[]>>(this.postUrlUsers, UserModel, this.httpOptions)
   }
 
-  createGame(GameModel: GameModel): Observable<Response<GameModel[]>> {
-    return this.http.post<Response<GameModel[]>>(this.createUrlGame, GameModel);
-  }
-
+  
 
 }

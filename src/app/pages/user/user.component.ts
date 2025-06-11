@@ -4,6 +4,8 @@ import { UserService } from '../../services/user/user.service';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { GameModel } from '../../model/Game';
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -16,19 +18,20 @@ import { GameModel } from '../../model/Game';
 export class UserComponent implements OnInit {
   users: UserModel[] = [];
   userForm: FormGroup;
+  errorMessage: string | null = null;
 
-  constructor(private fb: FormBuilder, private userService: UserService) { 
+  constructor(private router: Router, private fb: FormBuilder, private userService: UserService, private authService: AuthService) {
     this.userForm = this.fb.group({
-        email: ['', [Validators.required, Validators.email]]
+      email: ['', [Validators.required, Validators.email]]
     });
 
   }
 
-  
+
 
   ngOnInit(): void {
     //this.userService.usersUpdatedSubject.subscribe((usersDto) => {
-      //this.users = usersDto ? usersDto.map((dto: UserDTO) => this.mapUserDtoToUserModel(dto)) : [];
+    //this.users = usersDto ? usersDto.map((dto: UserDTO) => this.mapUserDtoToUserModel(dto)) : [];
     //});
 
     this.userService.getUsers().subscribe({
@@ -47,50 +50,46 @@ export class UserComponent implements OnInit {
     });
   }
 
- 
+
 
 
   addUser(): void {
     if (this.userForm.valid) {
-      const newUser: UserModel = {
-        
-        username: this.userForm.value.email
-      };
 
-      this.userService.addUser(newUser).subscribe({
-        next: (response) => {
-          console.log('User created ', response);
-          this.userForm.reset();
-        },
-        error: (err) => {
-          console.error("Error creating user ", err);
-        }
-      });
-    } else {
-      console.warn('Form non valido!');
+
+      const email = this.userForm.value.email;
+      const existingUser = this.findUserByEmail(email);
+
+      if (existingUser) {
+        this.authService.login(existingUser);
+        this.router.navigate(['/game']);
+      } else {
+        const newUser: UserModel = {
+          username: email
+        };
+
+        this.userService.addUser(newUser).subscribe({
+          next: (response) => {
+            this.authService.login(response);
+            this.router.navigate(['/game']);
+            console.log('User created ', response);
+            this.userForm.reset();
+          },
+          error: (err) => {
+            console.error("Error creating user ", err);
+            this.errorMessage = "Errore nella creazione dell'utente. Riprova.";
+          }
+        });
+
+      }
     }
+
+
+
   }
 
-  createGame(): void {
-    if (this.users.length === 0) {
-      console.warn('No users available to assign to the game.');
-      return;
-    }
-    const newGame: GameModel = {
-      id: 0,
-      score: 0,
-      status: 'On going',
-      id_user: this.users[0] // Assign the first user; adjust as needed
-    };
-
-    this.userService.createGame(newGame).subscribe({
-      next: (response) => {
-        console.log('Game created ', response);
-      },
-      error: (error) => {
-        console.error('Error ', error);
-      }
-    });
+  findUserByEmail(email: string): UserModel | undefined {
+    return this.users.find(user => user.username === email);
   }
 
 }
