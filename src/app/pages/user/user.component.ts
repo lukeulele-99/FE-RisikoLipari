@@ -6,6 +6,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { GameModel } from '../../model/Game';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { GameService } from '../../services/game/game.service';
 
 
 @Component({
@@ -20,7 +21,13 @@ export class UserComponent implements OnInit {
   userForm: FormGroup;
   errorMessage: string | null = null;
 
-  constructor(private router: Router, private fb: FormBuilder, private userService: UserService, private authService: AuthService) {
+  constructor(
+    private router: Router, 
+    private fb: FormBuilder, 
+    private userService: UserService, 
+    private authService: AuthService,
+    private gameService: GameService
+  ){
     this.userForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]]
     });
@@ -86,6 +93,10 @@ export class UserComponent implements OnInit {
 
 
 
+  }
+
+  createGame() {
+    this.gameService.createGame();
   }
 
   findUserByEmail(email: string): UserModel | undefined {

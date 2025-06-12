@@ -4,6 +4,7 @@ import { UserService } from '../../services/user/user.service';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { GameModel } from '../../model/Game';
+import { GameService } from '../../services/game/game.service';
 
 
 @Component({
@@ -14,12 +15,13 @@ import { GameModel } from '../../model/Game';
   styleUrl: './user.component.css'
 })
 export class UserComponent implements OnInit {
+  
   users: UserModel[] = [];
   userForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private userService: UserService) { 
+  constructor(private fb: FormBuilder, private userService: UserService, private gameService: GameService) {
     this.userForm = this.fb.group({
-        email: ['', [Validators.required, Validators.email]]
+      email: ['', [Validators.required, Validators.email]]
     });
   }
 
@@ -43,6 +45,10 @@ export class UserComponent implements OnInit {
         this.users = [];
       }
     });
+  }
+
+  createGame() {
+    this.gameService.createGame();
   }
 
   addUser(): void {
