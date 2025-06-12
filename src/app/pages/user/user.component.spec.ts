@@ -15,6 +15,9 @@ import { GameService } from '../../services/game/game.service';
   styleUrl: './user.component.css'
 })
 export class UserComponent implements OnInit {
+isUserLoggedIn(): any {
+throw new Error('Method not implemented.');
+}
   
   users: UserModel[] = [];
   userForm: FormGroup;

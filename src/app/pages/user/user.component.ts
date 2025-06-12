@@ -22,16 +22,20 @@ export class UserComponent implements OnInit {
   errorMessage: string | null = null;
 
   constructor(
-    private router: Router, 
-    private fb: FormBuilder, 
-    private userService: UserService, 
+    private router: Router,
+    private fb: FormBuilder,
+    private userService: UserService,
     private authService: AuthService,
     private gameService: GameService
-  ){
+  ) {
     this.userForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]]
     });
 
+  }
+
+  isUserLoggedIn(): boolean {
+    return this.authService.isLoggedIn();
   }
 
 
@@ -96,8 +100,19 @@ export class UserComponent implements OnInit {
   }
 
   createGame() {
-    this.gameService.createGame();
+    this.gameService.createGame().subscribe({
+      next: (game) => {
+        console.log('New game ', game);
+      },
+      error: (error) => {
+        console.error('Error ', error);
+      }
+    })
   }
+
+  /* createGame() {
+    this.gameService.createGame();
+  } */
 
   findUserByEmail(email: string): UserModel | undefined {
     return this.users.find(user => user.username === email);

@@ -22,21 +22,18 @@ export class GameService {
     return this.http.get<Response<GameModel[]>>(this.apiUrl);
   }
 
-  createGame(): Observable<Response<GameModel[]>> {
+  createGame(): Observable<Response<GameModel>> {
     const currentUser = this.authService.getCurrentUser();
 
     if(!currentUser || !currentUser.id) {
       throw new Error('Nessun utente trovato');
     }
 
-    const newGame: GameModel = {
-      id: 0,
-      score: 0,
-      status: 'On going',
-      id_user: currentUser
+    const newGame: any = {
+      username: currentUser.username
     }
 
-    return this.http.post<Response<GameModel[]>>(this.createUrlGame, newGame);
+    return this.http.post<Response<GameModel>>(this.createUrlGame, newGame);
   }
 
    /*createGame(id_user: number): Observable<Response<GameModel[]>> {

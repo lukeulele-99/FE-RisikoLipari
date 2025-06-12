@@ -5,5 +5,5 @@ export interface GameModel {
   id: number;
   score: number;
   status: string;
-  id_user: UserModel;
+  user: UserModel;
 }

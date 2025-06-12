@@ -9,6 +9,8 @@ import { EmployeeComponent } from "../../employee/employee.component";
 import { UserService } from '../../services/user/user.service';
 import { AuthService } from '../../services/auth.service';
 import { UserModel } from '../../model/User';
+import { create } from 'domain';
+import { error } from 'console';
 
 @Component({
   selector: 'app-game',
@@ -17,6 +19,7 @@ import { UserModel } from '../../model/User';
   styleUrl: './game.component.css'
 })
 export class GameComponent {
+
   games: GameModel[] = [];
   currentUser: UserModel | null = null;
 
@@ -27,13 +30,15 @@ export class GameComponent {
     //this.games = gameDto ? gameDto.map((dto: GameDTO) => this.mapGameDtoToGameModel(dto)) : [];
     //})
 
-    this.currentUser = this.authService.getCurrentUser();
+    /* this.currentUser = this.authService.getCurrentUser();
 
     this.authService.currentUser.subscribe((user) => {
       this.currentUser = user;
     });
 
-    this.getGames();
+    this.getGames(); */
+
+
 
 
   }
@@ -55,7 +60,7 @@ export class GameComponent {
     })
   }
 
-  
 
+  
 
 }
