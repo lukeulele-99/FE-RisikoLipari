@@ -73,7 +73,7 @@ export class UserComponent implements OnInit {
     }
   }
 
-  createGame(): void {
+  /*createGame(): void {
     const newGame: GameModel = {
       id: 0,
       score: 0,
@@ -95,7 +95,7 @@ export class UserComponent implements OnInit {
         console.error('Errore HTTP nella creazione del gioco:', error);
       }
     });
-  }
+  }*/
 
   // ✅ Metodo helper per ricaricare gli utenti
   private loadUsers(): void {

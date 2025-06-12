@@ -27,6 +27,8 @@ export class GameComponent {
     //this.games = gameDto ? gameDto.map((dto: GameDTO) => this.mapGameDtoToGameModel(dto)) : [];
     //})
 
+    this.currentUser = this.authService.getCurrentUser();
+
     this.authService.currentUser.subscribe((user) => {
       this.currentUser = user;
     });
@@ -53,7 +55,7 @@ export class GameComponent {
     })
   }
 
-
+  
 
 
 }

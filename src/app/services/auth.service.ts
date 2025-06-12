@@ -59,7 +59,9 @@ export class AuthService {
   }
 
 
-
+  getCurrentUser(): UserModel | null {
+    return this.currentUserSubject.value;
+  }
 
 
 
