@@ -5,9 +5,15 @@
     </li>
 </ul> -->
 <div class="register-container" *ngIf="isUserLoggedIn(); else register_form">
-    <h2>Login Utente</h2>
+    <!-- <h2>Ciao, {{currentUser.username}}</h2> -->
 
-    <form [formGroup]="userForm">
+    <h2>ciao </h2>
+
+    <button type="submit" (click)="createGame()">Avvia partita</button>
+    <button type="submit" (click)="exitGame()">Logout</button>
+
+
+    <!-- <form [formGroup]="userForm">
         <div class="form-group">
             <label for="email">Email:</label>
             <input id="email" formControlName="email" name="email" type="email" required />
@@ -18,8 +24,8 @@
             Avvia partita
         </button>
 
-    </form>
-</div>
+    </form>  -->
+</div> 
 
 <ng-template #register_form>
     <div class="register-container">

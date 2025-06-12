@@ -15,6 +15,10 @@ import { GameService } from '../../services/game/game.service';
   styleUrl: './user.component.css'
 })
 export class UserComponent implements OnInit {
+exitGame() {
+throw new Error('Method not implemented.');
+}
+currentUser: any;
 isUserLoggedIn(): any {
 throw new Error('Method not implemented.');
 }

@@ -20,6 +20,7 @@ export class UserComponent implements OnInit {
   users: UserModel[] = [];
   userForm: FormGroup;
   errorMessage: string | null = null;
+  currentUser: UserModel | null = null;
 
   constructor(
     private router: Router,
@@ -36,6 +37,11 @@ export class UserComponent implements OnInit {
 
   isUserLoggedIn(): boolean {
     return this.authService.isLoggedIn();
+  }
+
+  exitGame() {
+    this.authService.logout();
+    this.router.navigate(['/user']);
   }
 
 
