@@ -73,7 +73,6 @@ export class UserComponent implements OnInit {
 
       if (existingUser) {
         this.authService.login(existingUser);
-        this.router.navigate(['/game']);
       } else {
         const newUser: UserModel = {
           username: email
@@ -103,6 +102,7 @@ export class UserComponent implements OnInit {
     this.gameService.createGame().subscribe({
       next: (game) => {
         console.log('New game ', game);
+        this.router.navigate(['/game']);
       },
       error: (error) => {
         console.error('Error ', error);

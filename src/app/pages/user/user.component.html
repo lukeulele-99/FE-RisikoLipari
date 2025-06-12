@@ -4,21 +4,42 @@
         {{user.username}}   //da togliere dopo
     </li>
 </ul> -->
-<div class="register-container" *ngIf="isUserLoggedIn()">
-    <h2>Registrazione Utente</h2>
+<div class="register-container" *ngIf="isUserLoggedIn(); else register_form">
+    <h2>Login Utente</h2>
 
-    <form [formGroup]="userForm" >
+    <form [formGroup]="userForm">
         <div class="form-group">
             <label for="email">Email:</label>
             <input id="email" formControlName="email" name="email" type="email" required />
         </div>
 
-        <button type="submit" (click)="addUser()">
+        <button type="submit" (click)="createGame()">
 
-            Registrati
+            Avvia partita
         </button>
-       
+
     </form>
 </div>
 
-<button type="submit" (click)="createGame()">Avvia partita</button>
+<ng-template #register_form>
+    <div class="register-container">
+        <h2>Registrazione Utente</h2>
+
+        <form [formGroup]="userForm">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input id="email" formControlName="email" name="email" type="email" required />
+            </div>
+
+            <button type="submit" (click)="addUser()">
+
+                Registrati
+            </button>
+
+        </form>
+    </div>
+</ng-template>
+
+
+
+<!-- <button type="submit" (click)="createGame()">Avvia partita</button> -->

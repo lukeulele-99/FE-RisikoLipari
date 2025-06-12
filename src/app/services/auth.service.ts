@@ -1,9 +1,10 @@
 //AUTHEENTICAION SERVICE CON LOGIN E LOGOUT 
 
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { UserModel } from '../model/User';
 import { UserService } from './user/user.service';
+import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -17,20 +18,23 @@ export class AuthService {
 
   currentUser: UserModel | undefined
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, @Inject(PLATFORM_ID) private platformId: Object) {
     this.initializeFromStorage();
   }
 
-  initializeFromStorage(): void {
-    const storedUser = localStorage.getItem('currentUser');
-    if (storedUser) {
-      try {
-        const user = JSON.parse(storedUser);
-        this.currentUserSubject.next(user);
-        this.currentUser = user;
-      } catch (e) {
-        console.error('Error parsing current user ', e);
-        this.logout();
+  private initializeFromStorage(): void {
+    // Only run this in browser environments
+    if (isPlatformBrowser(this.platformId)) {
+      const storedUser = localStorage.getItem('currentUser');
+      if (storedUser) {
+        try {
+          const user = JSON.parse(storedUser);
+          this.currentUserSubject.next(user);
+          this.currentUser = user;
+        } catch (e) {
+          console.error('Error parsing current user ', e);
+          this.logout();
+        }
       }
     }
   }
