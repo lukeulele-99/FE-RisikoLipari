@@ -1,16 +1,25 @@
-<!--<div class="company-component_6-176">
-  <button class="ellipse-2_3-28"></button>
-  <button class="ellipse-4_3-29"></button>
-  <button class="ellipse-3_3-30"></button>
-  <button class="ellipse-9_3-36"></button>
-</div> -->
+<!-- POSSIBILE LOGICA GESTIONE NODI usando attributi dell'svg per sistemarli nella regione specifica -->
 
-<h2>Company</h2>
+<!--  <circle *ngFor="let node of nodes"
+          [attr.cx]="node.x"
+          [attr.cy]="node.y"
+          r="10"
+          fill="red"
+          (click)="onNodeClick(node)">
+  </circle>
+ -->
 
-<!--GENERAZIONE COMPANY-->
+<!-- ALTERNATIVA BASE COMPONENTE -->
+
+  <div class="Companies">
+  <button class="ellipse"></button>
+
+
+<!--GENERAZIONE COMPANIES-->
 
 <ul *ngFor="let company of compa">
   <li> CC
     {{company.name}}
   </li>
 </ul>
+
