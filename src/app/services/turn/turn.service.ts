@@ -9,7 +9,7 @@ import { Response } from '../../Response';
 })
 export class TurnService {
 
-  turn: TurnModel[] = [];
+  
 
   private getUrlTurn = 'http://localhost:8080/api/turn';
 
