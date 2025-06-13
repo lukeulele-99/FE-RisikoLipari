@@ -9,7 +9,9 @@ import { Component } from '@angular/core';
 export class MapComponent {
 
 onClick() {
-  alert("Funziona")
+  alert("Nodo cliccato con successo")
 }
+
+
 
 }
