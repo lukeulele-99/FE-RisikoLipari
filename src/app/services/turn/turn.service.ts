@@ -13,10 +13,16 @@ export class TurnService {
 
   private getUrlTurn = 'http://localhost:8080/api/turn';
 
+  private postUrlTurn = 'http://localhost:8080/api/turn/next';
+
   constructor(private http: HttpClient) { }
 
   getTurns(gameId: number): Observable<Response<any[]>> {
     return this.http.get<Response<any[]>>(`${this.getUrlTurn}/${gameId}`);
+  }
+
+  newTurn(gameId: number): Observable<Response<any[]>> {
+    return this.http.get<Response<any[]>>(`${this.postUrlTurn}/${gameId}`);
   }
 
 }

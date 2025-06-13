@@ -85,8 +85,17 @@ export class GameComponent {
     })
   }
 
-  nextTurn() {
+  newTurn() {
     
+
+    this.turnService.newTurn(this.gameId).subscribe({
+      next: (response) => {
+        console.log('response ', response);
+      },
+      error: (error) => {
+        console.error('error ', error);
+      }
+    })
   }
 
 
