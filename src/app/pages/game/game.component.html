@@ -6,26 +6,28 @@
 <!-- 
     Turno successivo
 </button>
-<div class="turn" *ngIf="nextTurn()">
-
-    <ul *ngFor="let game of games">
-        <li>
-            {{game.score}}
-            {{game.status}}
-        </li>
-    </ul>
-</div> -->
+ -->
 
 
-TURNI
+<!-- TURNI
 <ul *ngFor="let turn of turns">
     <li>{{turn.turns}}</li>
     <li>{{turn.gameId}}</li>
-</ul>
+</ul> -->
 
 <button (click)="newTurn()">Nuovo turno</button>
 
+<div class="turn">
 
+    <ul *ngIf="createdTurn">
+        <li>
+            {{createdTurn.turns}}
+        </li>
+        <li>
+            {{createdTurn.gameId}}
+        </li>
+    </ul>
+</div>
 
 
 <!-- Game:

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavbarComponent } from "../../navbar/navbar.component";
 import { MapComponent } from "../../map/map.component";
 import { CompanyComponent } from "../../company/company.component";
@@ -13,6 +13,7 @@ import { create } from 'domain';
 import { error } from 'console';
 import { TurnService } from '../../services/turn/turn.service';
 import { TurnModel } from '../../model/Turn';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-game',
@@ -20,19 +21,22 @@ import { TurnModel } from '../../model/Turn';
   templateUrl: './game.component.html',
   styleUrl: './game.component.css'
 })
-export class GameComponent {
+export class GameComponent implements OnInit {
 
 
   games: GameModel[] = [];
   currentUser: UserModel | null = null;
   turns: TurnModel[] = [];
-  gameId = 1;
+  gameId = 2
+  createdTurn?: any;
+
 
   constructor(
-    private gameService: GameService, 
-    private userService: UserService, 
+    private gameService: GameService,
+    private userService: UserService,
     private authService: AuthService,
-    private turnService: TurnService
+    private turnService: TurnService,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
@@ -47,6 +51,8 @@ export class GameComponent {
     });
 
     this.getGames(); */
+
+   
 
     this.getTurns();
   }
@@ -72,7 +78,7 @@ export class GameComponent {
     this.turnService.getTurns(this.gameId).subscribe({
       next: (response) => {
         console.log('response ', response);
-        if(Array.isArray(response) && response.length > 0) {
+        if (Array.isArray(response) && response.length > 0) {
           this.turns = response;
         } else {
           this.turns = [];
@@ -86,10 +92,10 @@ export class GameComponent {
   }
 
   newTurn() {
-    
 
     this.turnService.newTurn(this.gameId).subscribe({
       next: (response) => {
+        this.createdTurn = response;
         console.log('response ', response);
       },
       error: (error) => {

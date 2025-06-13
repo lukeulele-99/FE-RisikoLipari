@@ -22,7 +22,7 @@ export class TurnService {
   }
 
   newTurn(gameId: number): Observable<Response<any[]>> {
-    return this.http.get<Response<any[]>>(`${this.postUrlTurn}/${gameId}`);
+    return this.http.post<Response<any[]>>(`${this.postUrlTurn}/${gameId}`, null);
   }
 
 }
