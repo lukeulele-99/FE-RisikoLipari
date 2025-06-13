@@ -11,6 +11,8 @@ import { AuthService } from '../../services/auth.service';
 import { UserModel } from '../../model/User';
 import { create } from 'domain';
 import { error } from 'console';
+import { TurnService } from '../../services/turn/turn.service';
+import { TurnModel } from '../../model/Turn';
 
 @Component({
   selector: 'app-game',
@@ -20,10 +22,18 @@ import { error } from 'console';
 })
 export class GameComponent {
 
+
   games: GameModel[] = [];
   currentUser: UserModel | null = null;
+  turns: TurnModel[] = [];
+  gameId = 1;
 
-  constructor(private gameService: GameService, private userService: UserService, private authService: AuthService) { }
+  constructor(
+    private gameService: GameService, 
+    private userService: UserService, 
+    private authService: AuthService,
+    private turnService: TurnService
+  ) { }
 
   ngOnInit(): void {
     //this.gameService.gameUpdatedSubject.subscribe((gameDto) => {
@@ -38,9 +48,7 @@ export class GameComponent {
 
     this.getGames(); */
 
-
-
-
+    this.getTurns();
   }
 
   getGames(): void {
@@ -60,7 +68,28 @@ export class GameComponent {
     })
   }
 
+  getTurns(): void {
+    this.turnService.getTurns(this.gameId).subscribe({
+      next: (response) => {
+        console.log('response ', response);
+        if(Array.isArray(response) && response.length > 0) {
+          this.turns = response;
+        } else {
+          this.turns = [];
+        }
+      },
+      error: (error) => {
+        console.error('error ', error);
+        this.turns = [];
+      }
+    })
+  }
 
-  
+  nextTurn() {
+    
+  }
+
+
+
 
 }

@@ -1,7 +1,31 @@
-
-<app-map></app-map> 
+<app-map></app-map>
 <app-employee></app-employee>
 <app-company></app-company>
+
+
+<!-- <button (click)="nextTurn()">
+    Turno successivo
+</button>
+<div class="turn" *ngIf="nextTurn()">
+
+    <ul *ngFor="let game of games">
+        <li>
+            {{game.score}}
+            {{game.status}}
+        </li>
+    </ul>
+</div> -->
+
+
+TURNI
+<ul *ngFor="let turn of turns">
+    <li>{{turn.turns}}</li>
+    <li>{{turn.gameId}}</li>
+</ul>
+
+
+
+
 <!-- Game:
 <ul *ngFor="let game of games">
     <li>
