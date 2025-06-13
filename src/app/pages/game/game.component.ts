@@ -14,6 +14,7 @@ import { error } from 'console';
 import { TurnService } from '../../services/turn/turn.service';
 import { TurnModel } from '../../model/Turn';
 import { ActivatedRoute } from '@angular/router';
+import { EmployeeService } from '../../services/employee/employee.service';
 
 @Component({
   selector: 'app-game',
@@ -36,6 +37,7 @@ export class GameComponent implements OnInit {
     private userService: UserService,
     private authService: AuthService,
     private turnService: TurnService,
+    private employeeService: EmployeeService,
     private route: ActivatedRoute
   ) { }
 
@@ -52,9 +54,9 @@ export class GameComponent implements OnInit {
 
     this.getGames(); */
 
-   
-
     this.getTurns();
+
+    this.employeeService.getEmployee();
   }
 
   getGames(): void {
