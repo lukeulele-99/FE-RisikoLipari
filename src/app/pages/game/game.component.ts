@@ -30,7 +30,7 @@ export class GameComponent implements OnInit {
   games: GameModel[] = [];
   currentUser: UserModel | null = null;
   turns: TurnModel[] = [];
-  gameId = -1
+  gameId : number = 0
   createdTurn?: any;
 
 
@@ -56,13 +56,18 @@ export class GameComponent implements OnInit {
 
     this.getGames(); */
 
+    this.route.params.subscribe((params: Params) => {
+      const idFromRoute = params['id'];
+      if(idFromRoute) {
+        this.gameId = +idFromRoute;
+        this.getTurns();
+      } 
+    })
+
     //leggere il parametro dell'id passato su user component
+ 
+    
 
-   this.route.params.subscribe((params : Params) => {
-    this.gameId = params['id'];
-   }) 
-
-    this.getTurns();
 
     this.employeeService.getEmployees();
   }

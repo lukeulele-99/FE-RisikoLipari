@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { GameService } from '../../services/game/game.service';
 
 
+
 @Component({
   standalone: true,
   selector: 'app-user',
@@ -108,7 +109,12 @@ export class UserComponent implements OnInit {
     this.gameService.createGame().subscribe({
       next: (game) => {
         console.log('New game ', game);
-        this.router.navigate(['/game']);  //passare l'id del game 
+        if(game && game.id) {
+          this.router.navigate(['/game', game.id]);
+        } else {
+          console.error('Errore, id mancante');
+        }
+          //passare l'id del game 
       },
       error: (error) => {
         console.error('Error ', error);

@@ -12,7 +12,7 @@ import { CompanyComponent } from './company/company.component';
 //GESTIONE DI TUTTE LE ROUTE DEL PROGETTO
 export const routes: Routes = [
     { path: '', redirectTo: 'user', pathMatch: 'full' },
-    { path: 'game', component: GameComponent }, //canActivate: [authGuard] },
+    { path: 'game/:id', component: GameComponent }, //canActivate: [authGuard] },
     { path: 'company', component: CompanyComponent },
     { path: 'user', component: UserComponent },
     { path: 'rules', component: RulesComponent },
