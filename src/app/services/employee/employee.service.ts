@@ -13,7 +13,7 @@ export class EmployeeService {
 
   constructor(private http: HttpClient) { }
 
-  getEmployee(): Observable<Response<Employee[]>> {
+  getEmployees(): Observable<Response<Employee[]>> { // passare l'id del gameId  /game/gameId
     return this.http.get<Response<Employee[]>>(this.getEmplo);
   }
 }

@@ -15,11 +15,11 @@ export class EmployeeComponent implements OnInit {
   constructor(private employeeService: EmployeeService) { }
 
   ngOnInit(): void {
-    this.getEmployee();
+    this.getEmployees();
   }
 
-  getEmployee(): void {
-    this.employeeService.getEmployee().subscribe({
+  getEmployees(): void {
+    this.employeeService.getEmployees().subscribe({
       next: (response) => {
         console.log('response', response)
         if (Array.isArray(response) && response.length > 0) {

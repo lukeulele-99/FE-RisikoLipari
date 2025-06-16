@@ -15,6 +15,7 @@ import { TurnService } from '../../services/turn/turn.service';
 import { TurnModel } from '../../model/Turn';
 import { ActivatedRoute } from '@angular/router';
 import { EmployeeService } from '../../services/employee/employee.service';
+import { Response } from '../../Response';
 
 @Component({
   selector: 'app-game',
@@ -28,7 +29,7 @@ export class GameComponent implements OnInit {
   games: GameModel[] = [];
   currentUser: UserModel | null = null;
   turns: TurnModel[] = [];
-  gameId = 2
+  gameId = -1
   createdTurn?: any;
 
 
@@ -54,9 +55,14 @@ export class GameComponent implements OnInit {
 
     this.getGames(); */
 
+    //leggere il parametro dell'id passato su user component
+
+    const gameIdParam = this.route.snapshot.paramMap.get('gameId');
+    this.gameId = gameIdParam !== null ? Number(gameIdParam) : -1;
+
     this.getTurns();
 
-    this.employeeService.getEmployee();
+    this.employeeService.getEmployees();
   }
 
   getGames(): void {

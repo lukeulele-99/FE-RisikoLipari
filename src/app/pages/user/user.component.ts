@@ -108,7 +108,7 @@ export class UserComponent implements OnInit {
     this.gameService.createGame().subscribe({
       next: (game) => {
         console.log('New game ', game);
-        this.router.navigate(['/game']);
+        this.router.navigate(['/game/' + game.data.id]);  //passare l'id del game 
       },
       error: (error) => {
         console.error('Error ', error);
