@@ -13,7 +13,7 @@ import { create } from 'domain';
 import { error } from 'console';
 import { TurnService } from '../../services/turn/turn.service';
 import { TurnModel } from '../../model/Turn';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { EmployeeService } from '../../services/employee/employee.service';
 import { CardComponentComponent } from "../../company/card-component/card-component.component";
 import { Response } from '../../Response';
@@ -58,8 +58,9 @@ export class GameComponent implements OnInit {
 
     //leggere il parametro dell'id passato su user component
 
-    const gameIdParam = this.route.snapshot.paramMap.get('gameId');
-    this.gameId = gameIdParam !== null ? Number(gameIdParam) : -1;
+   this.route.params.subscribe((params : Params) => {
+    this.gameId = params['id'];
+   }) 
 
     this.getTurns();
 
