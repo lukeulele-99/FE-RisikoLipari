@@ -15,10 +15,11 @@ import { TurnService } from '../../services/turn/turn.service';
 import { TurnModel } from '../../model/Turn';
 import { ActivatedRoute } from '@angular/router';
 import { EmployeeService } from '../../services/employee/employee.service';
+import { CardComponentComponent } from "../../company/card-component/card-component.component";
 
 @Component({
   selector: 'app-game',
-  imports: [MapComponent, CompanyComponent, CommonModule, EmployeeComponent],
+  imports: [MapComponent, CompanyComponent, CommonModule, EmployeeComponent, CardComponentComponent],
   templateUrl: './game.component.html',
   styleUrl: './game.component.css'
 })
