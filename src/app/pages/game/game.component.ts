@@ -61,6 +61,7 @@ export class GameComponent implements OnInit {
       if(idFromRoute) {
         this.gameId = +idFromRoute;
         this.getTurns();
+        this.employeeService.getEmployeeByGame(this.gameId);
       } 
     })
 
@@ -69,7 +70,7 @@ export class GameComponent implements OnInit {
     
 
 
-    this.employeeService.getEmployees();
+    /* this.employeeService.getEmployees(); */
   }
 
   getGames(): void {

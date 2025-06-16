@@ -9,11 +9,11 @@ import { Employee } from '../../model/Employee';
 })
 export class EmployeeService {
 
-  private getEmplo = 'http://localhost:8080/api/employee';
+  private getEmploByGame = 'http://localhost:8080/api/employee/game';
 
   constructor(private http: HttpClient) { }
 
-  getEmployees(): Observable<Response<Employee[]>> { // passare l'id del gameId  /game/gameId
-    return this.http.get<Response<Employee[]>>(this.getEmplo);
+  getEmployeeByGame(gameId: number): Observable<Employee[]> { // passare l'id del gameId  /game/gameId
+    return this.http.get<Employee[]>(`${this.getEmploByGame}/${gameId}`);
   }
 }
