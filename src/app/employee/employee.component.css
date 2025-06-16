@@ -1,6 +1,9 @@
 .tabella-container {
-  width: 100%;
   display: flex;
+  justify-content: flex-end;
+  margin-top: -800px;
+  margin-left: -300px;
+  margin-right: 170px;
 }
 
 table {
