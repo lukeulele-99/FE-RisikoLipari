@@ -14,12 +14,20 @@
         
 
 
-         <tbody *ngFor="let employee of employees">
-            <tr *ngIf="employee.role == 'Manager'">
+         <tbody>
+            <tr>
+                <th></th>
+                <th>Totali</th>
+                <th>Staffing</th>
+                <th>Disponibili</th>
+            </tr>
+            <tr>
                 <th>MANAGER</th> 
                 <td></td>
+                <td></td>
+                <td></td>
             </tr>
-             <tr *ngIf="employee.role == 'Senior'">
+             <tr>
                 <th>SENIOR</th>
                 <td>
                     
@@ -31,7 +39,7 @@
                     
                 </td>
             </tr>
-            <tr *ngIf="employee.role == 'Consultant'">
+            <tr>
                 <th>CONSULTANT</th>
                 <td>
                     
