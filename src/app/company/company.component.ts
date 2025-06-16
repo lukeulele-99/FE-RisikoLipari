@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CompanyModel } from '../model/Company';
 import { CompanyService } from '../services/company/company.service';
 import { CommonModule } from '@angular/common';
+import { CardComponentComponent } from "./card-component/card-component.component";
 
 
 @Component({
