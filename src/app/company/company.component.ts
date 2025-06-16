@@ -3,6 +3,7 @@ import { CompanyModel } from '../model/Company';
 import { CompanyService } from '../services/company/company.service';
 import { CommonModule } from '@angular/common';
 
+
 @Component({
   selector: 'app-company',
   imports: [CommonModule],
