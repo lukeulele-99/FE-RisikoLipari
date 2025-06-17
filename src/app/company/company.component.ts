@@ -3,6 +3,7 @@ import { CompanyModel } from '../model/Company';
 import { CompanyService } from '../services/company/company.service';
 import { CommonModule } from '@angular/common';
 import { CardComponentComponent } from "./card-component/card-component.component";
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -11,17 +12,33 @@ import { CardComponentComponent } from "./card-component/card-component.componen
   templateUrl: './company.component.html',
   styleUrl: './company.component.css'
 })
-export class CompanyComponent implements OnInit{
+export class CompanyComponent implements OnInit {
   compa: CompanyModel[] = [];
 
-  constructor(private companyService: CompanyService) {}
+  constructor(private companyService: CompanyService, private route: ActivatedRoute) { }
   ngOnInit(): void {
-    
+    this.route.params.subscribe(params => {
+      const gameId = +params['id'];
+      if (gameId) {
+        this.getCompaniesByGameId(gameId);
+      } else {
+        console.error('gameId non trovato nella route');
+      }
+    });
   }
 
 
-  getCompaniesByGameId() {
-    
+  getCompaniesByGameId(gameId: number) {
+    this.companyService.getCompaniesByGameId(gameId).subscribe({
+      next: (response) => {
+        console.log('response ', response);
+
+      },
+      error: (error) => {
+        console.error('error: ', error);
+        this.compa = [];
+      }
+    });
   }
 
   /* getCompanies(): void {
@@ -47,5 +64,5 @@ export class CompanyComponent implements OnInit{
     })
   } */
 
- 
+
 }
