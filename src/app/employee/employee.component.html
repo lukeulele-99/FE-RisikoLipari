@@ -1,8 +1,7 @@
-
 <div class="tabella-container">
 
 
-   <!--  <ul *ngFor="let employee of employees">
+    <!--  <ul *ngFor="let employee of employees">
         <li>{{employee.role}}</li>
     </ul> -->
 
@@ -11,10 +10,10 @@
 
 
     <table>
-        
 
 
-         <tbody>
+
+        <tbody>
             <tr>
                 <th></th>
                 <th>Totali</th>
@@ -22,7 +21,7 @@
                 <th>Disponibili</th>
             </tr>
             <tr>
-                <th>MANAGER</th> 
+                <th>MANAGER</th>
                 <td>
                     {{roleStats["Manager"].totali}}
                 </td>
@@ -33,7 +32,7 @@
                     {{roleStats["Manager"].disponibili}}
                 </td>
             </tr>
-             <tr>
+            <tr>
                 <th>SENIOR</th>
                 <td>
                     {{roleStats["Senior"].totali}}
@@ -56,8 +55,11 @@
                 <td>
                     {{roleStats["Consultant"].disponibili}}
                 </td>
-            </tr> 
-        </tbody> 
-    </table> 
-    <input type="submit" value="Assumi">
+            </tr>
+        </tbody>
+    </table>
+    <input type="submit" value="Assumi Manager">
+<input type="submit" value="Assumi Senior">
+<input type="submit" value="Assumi Consultant">
 </div>
+
