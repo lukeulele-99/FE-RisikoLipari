@@ -2,8 +2,8 @@
   display: flex;
   justify-content: flex-end;
   margin-top: -900px;
-  margin-left: -300px;
-  margin-right: 170px;
+  margin-right: 60px;
+
 }
 
 table {
@@ -28,4 +28,11 @@ thead th {
 tbody th {
   background-color: #f9f9f9;
   text-align: left;
+}
+
+/* TODO BTN ALLINEARE */
+
+.btn-submit {
+
+  
 }

@@ -22,44 +22,45 @@
             </tr>
             <tr>
                 <th>MANAGER</th>
-                <td>
+                <td class="Manager">
                     {{roleStats["Manager"].totali}}
                 </td>
-                <td>
+                <td class="Manager">
                     {{roleStats["Manager"].staffati}}
                 </td>
-                <td>
+                <td class="Manager">
                     {{roleStats["Manager"].disponibili}}
                 </td>
             </tr>
             <tr>
                 <th>SENIOR</th>
-                <td>
+                <td class="Senior">
                     {{roleStats["Senior"].totali}}
                 </td>
-                <td>
+                <td class="Senior">
                     {{roleStats["Senior"].staffati}}
                 </td>
-                <td>
+                <td class="Senior">
                     {{roleStats["Senior"].disponibili}}
                 </td>
             </tr>
             <tr>
                 <th>CONSULTANT</th>
-                <td>
+                <td class="Consultant">
                     {{roleStats["Consultant"].totali}}
                 </td>
-                <td>
+                <td class="Consultant">
                     {{roleStats["Consultant"].staffati}}
                 </td>
-                <td>
+                <td class="Consultant">
                     {{roleStats["Consultant"].disponibili}}
                 </td>
             </tr>
         </tbody>
     </table>
-    <input type="submit" value="Assumi Manager">
-<input type="submit" value="Assumi Senior">
-<input type="submit" value="Assumi Consultant">
+    <div class="btns-submit">
+        <input id="btn-manager" type="submit" value="Assumi Manager">
+        <input id="btn-senior" type="submit" value="Assumi Senior">
+        <input id="btn-consultant" type="submit" value="Assumi Consultant">
+    </div>
 </div>
-
