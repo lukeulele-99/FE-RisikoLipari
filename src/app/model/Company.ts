@@ -1,8 +1,14 @@
 export interface CompanyModel {
     id: number;
-    id_region: number
     name: string;
-    status: 'disponibile' | 'in collaborazione' | 'non disponibile';
+    unlocked: boolean,
+    collaborationTurns: number,
+    expectedRevenue: number,
+    status?: string, 
+    Manager: number,
+    Senior: number,
+    Consultant: number
+    
 }
 
 

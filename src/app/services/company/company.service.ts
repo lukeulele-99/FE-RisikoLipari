@@ -11,6 +11,8 @@ export class CompanyService {
 
   private getUrlComp = 'http://localhost:8080/api/company';
 
+  private getUrlCompGame = 'http://localhost:8080/api/company/game';
+
  // companyUpdatedSubject = new BehaviorSubject<any>(null);
 
   constructor(private http: HttpClient) { }
@@ -21,5 +23,9 @@ export class CompanyService {
 
   getCompanyById(id: number): Observable<CompanyModel> {
     return this.http.get<CompanyModel>(`${this.getUrlComp}/${id}`);
+  }
+
+  getCompaniesByGameId(gameId: number): Observable<CompanyModel> {
+    return this.http.get<CompanyModel>(`${this.getUrlCompGame}/${gameId}`);
   }
 }

@@ -16,10 +16,15 @@ export class CompanyComponent implements OnInit{
 
   constructor(private companyService: CompanyService) {}
   ngOnInit(): void {
-    this.getCompanies();
+    
   }
 
-  getCompanies(): void {
+
+  getCompaniesByGameId() {
+    
+  }
+
+  /* getCompanies(): void {
    // this.companyService.companyUpdatedSubject.subscribe((companyDto) => {
     //  this.compa = companyDto ? companyDto.map((dto: CompanyDTO) => this.mapCompanyDtoToCompanyModel(dto)) : [];
    // });
@@ -40,7 +45,7 @@ export class CompanyComponent implements OnInit{
         this.compa = [];
       }
     })
-  }
+  } */
 
  
 }
