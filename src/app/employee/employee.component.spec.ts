@@ -12,6 +12,7 @@ import { EmployeeService } from '../services/employee/employee.service';
 })
 export class EmployeeComponent implements OnInit{
   employees : Employee[] = [];
+roleStats: any;
 
   constructor(private employeeService: EmployeeService) {}
 
