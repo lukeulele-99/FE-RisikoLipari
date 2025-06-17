@@ -8,10 +8,20 @@ import { Component } from '@angular/core';
 })
 export class MapComponent {
 
-onClick() {
-  alert("Nodo cliccato con successo")
+  onClick() {
+    alert("Nodo cliccato con successo")
+  }
+
+  /* 
+  isSelected() {
+    MapComponent.addEventListener("click", this.isSelected);
+    const selected = 
+  } */
+
 }
 
-
+function isSelected() {
+  document.getElementsByClassName("circles");
+  alert ("cerchio cliccato")
 
 }
