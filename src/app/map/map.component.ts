@@ -7,15 +7,18 @@ import { CardComponentComponent } from '../company/card-component/card-component
   templateUrl: './map.component.html',
   styleUrl: './map.component.css'
 })
+
+
+
 export class MapComponent {
 
-  isSelected() {
-  document.getElementsByClassName("nodes");
-  alert ("cerchio cliccato");
-  document.getElementsByClassName("card");
-  // TODO prendere componente cardBox con Json?
+  isSelected(nodeId:String) {
+    document.getElementsByClassName("nodes");
+    alert("cerchio cliccato: " + nodeId );
+    document.getElementById("card");
+    // TODO prendere componente cardBox con Json?
 
-}
+  }
 
 }
 
