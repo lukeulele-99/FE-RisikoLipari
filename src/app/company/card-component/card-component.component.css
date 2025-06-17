@@ -9,6 +9,9 @@
     padding-left: 30px;
     margin-top: 500px;
     margin-bottom: 100px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
 }
 
 .header {
@@ -31,6 +34,8 @@
     font-size: 18px;
     font-weight: 600;
     margin: 0;
+    font-size: 14px;
+    font-weight: 600;
 }
 
 .info-section {
@@ -78,10 +83,10 @@
     text-transform: uppercase;
     letter-spacing: 0.5px;
     text-align: center;
-    display: flex;              
-    align-items: center;        
-    justify-content: center;    
-    min-width: 120px;          
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
 }
 
 .collaborate-btn:hover {
