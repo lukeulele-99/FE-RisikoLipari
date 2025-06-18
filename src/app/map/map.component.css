@@ -7,3 +7,16 @@ path:hover {
   fill: rgb(178, 167, 167);
   transition: 0.4s;
 }
+
+.available {
+  fill: green;
+
+}
+
+.unavailable {
+  fill: red;
+}
+
+.inStaffing {
+  fill: blue;
+}
