@@ -47,6 +47,7 @@ companyColors: any = {
   "engineering-calabria": "unavailable",
   "engineering-sicilia": "unavailable"
 }
+
   isSelected(nodeId: String) {
     document.getElementsByClassName("nodes");
     alert("cerchio cliccato: " + nodeId);
