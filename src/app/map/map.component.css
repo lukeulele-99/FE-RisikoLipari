@@ -9,7 +9,7 @@ path:hover {
 }
 
 .available {
-  fill: green;
+  fill: rgb(52, 201, 52);
 
 }
 
@@ -18,5 +18,5 @@ path:hover {
 }
 
 .inStaffing {
-  fill: rgb(58, 58, 205);
+  fill: rgb(39, 39, 145);
 }
