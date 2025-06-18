@@ -52,7 +52,6 @@ companyColors: any = {
   isSelected(nodeId: String) {
     document.getElementsByClassName("nodes");
     alert("cerchio cliccato: " + nodeId);
-    document.getElementById("card");
     // TODO prendere componente cardBox con Json?
 
   }
