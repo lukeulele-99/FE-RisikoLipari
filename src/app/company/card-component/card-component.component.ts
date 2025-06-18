@@ -30,7 +30,14 @@ export class CardComponentComponent implements OnInit {
 
 
   getCompaniesByGameId(gameId: number) {
-    
+    this.companyService.getCompaniesByGameId(gameId).subscribe({
+      next: (response) => {
+        console.log('response ', response);
+      },
+      error: (error) => {
+        console.error('error ', error);
+      }
+    })
   }
 
 
