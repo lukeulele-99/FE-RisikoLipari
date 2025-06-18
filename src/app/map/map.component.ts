@@ -14,7 +14,7 @@ export class MapComponent {
   
 companyColors: any = {
   //TODO aggiornamento colore con status back-end
-  //BECONSULTING FIX MAP
+  //TODO DELOITTE MARCHE FIX, KMPG LIGURIA, PWC VALLE, ACCENTURE ED EY TRENTINO
   "deloitte-lombardia": "available",
   "accenture-lombardia": "unavailable",
   "ey-lombardia": "available",
