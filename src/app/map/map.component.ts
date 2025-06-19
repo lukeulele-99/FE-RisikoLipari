@@ -25,11 +25,11 @@ companyColors: any = {
   "KPMG-Piemonte": "Non-Disponibile",
   "EY-Trentino-Alto-Adige": "Non-Disponibile",
   "Accenture-Trentino-Alto-Adige": "Non-Disponibile",
-  "PWC-Valle D'Aosta": "Non-Disponibile",
+  "PWC-Valle": "Non-Disponibile",
   "Reply-Friuli": "Non-Disponibile",
-  "BE-Consulting-Friuli": "Non-Disponibile",
+  "Be-Consulting-Friuli": "Non-Disponibile",
   "Accenture-Liguria": "Non-Disponibile",
-  "BE-Consulting-Sardegna": "Non-Disponibile",
+  "Be-Consulting-Sardegna": "Non-Disponibile",
   "Engineering-Sardegna": "Non-Disponibile",
   "Deloitte-Veneto": "Non-Disponibile",
   "EY-Veneto": "Non-Disponibile",
@@ -54,7 +54,7 @@ companyColors: any = {
     document.getElementsByClassName("nodes");
     alert("cerchio cliccato: " + nodeId);
     // TODO prendere componente cardBox con Json?
-
+    nodeId    
   }
 
 }
