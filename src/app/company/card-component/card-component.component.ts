@@ -15,6 +15,8 @@ export class CardComponentComponent implements OnInit {
 
   company?: CompanyModel
 
+  visible: boolean = false;
+
   constructor(private companyService: CompanyService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -28,6 +30,13 @@ export class CardComponentComponent implements OnInit {
     });
   }
 
+  show() {
+    this.visible = true;
+  }
+
+  hide() {
+    this.visible = false;
+  }
 
   getCompanyById(companyId: number) {
     this.companyService.getCompanyById(companyId).subscribe({

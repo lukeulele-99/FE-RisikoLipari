@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { CardComponentComponent } from '../company/card-component/card-component.component';
 import { CommonModule } from '@angular/common';
 
@@ -11,6 +11,10 @@ import { CommonModule } from '@angular/common';
   styleUrl: './map.component.css'
 })
 export class MapComponent {
+
+  @ViewChild(CardComponentComponent) popup!: CardComponentComponent;
+
+ 
   
 companyColors: any = {
   //PROVARE IGNORE CASE
@@ -50,12 +54,12 @@ companyColors: any = {
   "Engineering-Sicilia": "Non-Disponibile"
 }
 
-  isSelected(nodeId: String) {
+   isSelected(nodeId: String) {
     document.getElementsByClassName("nodes");
-    alert("cerchio cliccato: " + nodeId);
+    this.popup.show();
     // TODO prendere componente cardBox con Json?
     nodeId    
-  }
+  } 
 
 }
 
