@@ -8,15 +8,15 @@ path:hover {
   transition: 0.4s;
 }
 
-.available {
+.Disponibile {
   fill: rgb(52, 201, 52);
 
 }
 
-.unavailable {
+.Non-Disponibile {
   fill: red;
 }
 
-.inStaffing {
+.In-Collaborazione {
   fill: rgb(39, 39, 145);
 }
