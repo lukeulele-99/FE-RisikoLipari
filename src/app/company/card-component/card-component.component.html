@@ -1,7 +1,7 @@
-<div class="card" style="font-weight: bold;">
+ <div class="card" style="font-weight: bold;">
         <div class="header" >
             <div class="status-indicator" ></div>
-            <h2 class="company-name">Azienda - Lom</h2>
+            <h2 class="company-name">Azienda - {{company?.name}}</h2>
         </div>
         
         <div class="info-section">
@@ -9,7 +9,7 @@
                 <span class="info-label">
                     Stato: 
                 </span>
-                <span class="info-value">Disponibile</span>
+                <span class="info-value">{{company?.status}}</span>
             </div>
             <div class="info-item">
                 <span class="info-label">Manager:</span>
@@ -24,12 +24,12 @@
                 <span class="info-value">1</span>
             </div>
             <div class="info-item">
-                <!-- TODO turni che diminuiscono in info-value -->
+                
                 <span class="info-label">Turni:</span>
                 <span class="info-value">8</span>
             </div>
             <div class="info-item">
-                <!-- TODO se collaboro, scritta diventa "turni rimanenti" -->
+                
                 <span class="info-label">Valore progetto per turno:</span>
                 <span class="info-value">10000€</span>
             </div>
@@ -38,4 +38,10 @@
         <button class="collaborate-btn">COLLABORA</button>
         </div>
 
-    </div>
+    </div> 
+
+<!-- TODO se collaboro, scritta diventa "turni rimanenti" -->
+
+<!-- TODO turni che diminuiscono in info-value -->
+
+

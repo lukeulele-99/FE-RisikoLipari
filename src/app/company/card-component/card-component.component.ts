@@ -13,26 +13,27 @@ import { error } from 'console';
 })
 export class CardComponentComponent implements OnInit {
 
-  cardComponents: CompanyModel[] = [];
+  company?: CompanyModel
 
   constructor(private companyService: CompanyService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      const gameId = +params['id'];
-      if (gameId) {
-        this.getCompaniesByGameId(gameId);
+      const companyId = +params['companyId']; // Assumes you have a 'companyId' param in your route
+      if (companyId) {
+        this.getCompanyById(companyId);
       } else {
-        console.error('gameId non trovato nella route');
+        console.error('companyId non trovato nella route');
       }
     });
   }
 
 
-  getCompaniesByGameId(gameId: number) {
-    this.companyService.getCompaniesByGameId(gameId).subscribe({
+  getCompanyById(companyId: number) {
+    this.companyService.getCompanyById(companyId).subscribe({
       next: (response) => {
         console.log('response ', response);
+        this.company = response;
       },
       error: (error) => {
         console.error('error ', error);

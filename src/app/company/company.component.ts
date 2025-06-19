@@ -31,7 +31,7 @@ export class CompanyComponent implements OnInit {
   getCompaniesByGameId(gameId: number) {
     this.companyService.getCompaniesByGameId(gameId).subscribe({
       next: (response) => {
-        console.log('response ', response);
+        console.log('response getCompaniesByGameId ', response);
 
       },
       error: (error) => {
