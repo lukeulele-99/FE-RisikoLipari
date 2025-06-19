@@ -60,8 +60,8 @@ companyColors: any = {
 }
 
    isSelected(nodeId: string) {
-    document.getElementsByClassName("nodes");
-   /*  this.companyService.getCompanyById(Number(nodeId)); */
+    document.getElementById("nodes");
+    this.companyService.getCompanyById(Number(nodeId)); 
     this.popup.show();
     // TODO prendere componente cardBox con Json?
     nodeId    
