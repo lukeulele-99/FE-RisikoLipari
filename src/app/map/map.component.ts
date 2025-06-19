@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { CardComponentComponent } from '../company/card-component/card-component.component';
 import { CommonModule } from '@angular/common';
+import { CompanyService } from '../services/company/company.service';
 
 
 
@@ -13,6 +14,10 @@ import { CommonModule } from '@angular/common';
 export class MapComponent {
 
   @ViewChild(CardComponentComponent) popup!: CardComponentComponent;
+
+  constructor(private companyService: CompanyService) {}
+
+
 
  
   
@@ -54,8 +59,9 @@ companyColors: any = {
   "Engineering-Sicilia": "Non-Disponibile"
 }
 
-   isSelected(nodeId: String) {
+   isSelected(nodeId: string) {
     document.getElementsByClassName("nodes");
+   /*  this.companyService.getCompanyById(Number(nodeId)); */
     this.popup.show();
     // TODO prendere componente cardBox con Json?
     nodeId    
