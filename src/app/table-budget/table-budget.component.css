@@ -28,6 +28,7 @@ td {
 }
 
 #budget-number , #turn-number {
+    font-size: 30px;
     height: 80px;
     width: 195px;
     border: 1px solid #ccc;
