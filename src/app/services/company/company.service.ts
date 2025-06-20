@@ -9,9 +9,9 @@ import { CompanyModel } from '../../model/Company';
 })
 export class CompanyService {
 
-  private getUrlComp = 'http://localhost:8080/api/company';
+  private getUrlComp = '/api/company';
 
-  private getUrlCompGame = 'http://localhost:8080/api/company/game';
+  private getUrlCompGame = '/api/company/game';
 
  // companyUpdatedSubject = new BehaviorSubject<any>(null);
 
@@ -21,7 +21,7 @@ export class CompanyService {
     return this.http.get<Response<CompanyModel[]>>(this.getUrlComp);
   }
 
-  getCompanyById(id: number): Observable<CompanyModel> {
+  getCompany(id: number): Observable<CompanyModel> {
     return this.http.get<CompanyModel>(`${this.getUrlComp}/${id}`);
   }
 

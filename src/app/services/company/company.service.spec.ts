@@ -35,9 +35,14 @@ describe('CompanyService', () => {
       data: [
         {
           id: 1,
-          id_region: 1,
           name: 'Test Company',
-          status: 'disponibile'
+          status: 'disponibile',
+          unlocked: false,
+          collaborationTurns: 0,
+          expectedRevenue: 0,
+          Manager: 0,
+          Senior: 0,
+          Consultant: 0
         }
       ]
     };
@@ -54,14 +59,20 @@ describe('CompanyService', () => {
   it('should get company by id', () => {
     const mockCompany: CompanyModel = {
       id: 1,
-      id_region: 1,
       name: 'Test Company',
-      status: 'disponibile'
+      status: 'disponibile',
+      unlocked: true,
+      collaborationTurns: 0,
+      expectedRevenue: 1000,
+      Manager: 1,
+      Senior: 1,
+      Consultant: 1
+      // Add any other required properties with suitable mock values
     };
 
     httpClientSpy.get.and.returnValue(of(mockCompany));
 
-    service.getCompanyById(1).subscribe(company => {
+    service.getCompany(1).subscribe(company => {
       expect(company).toEqual(mockCompany);
     });
 

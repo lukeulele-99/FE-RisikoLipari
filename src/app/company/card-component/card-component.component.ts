@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CompanyService } from '../../services/company/company.service';
 import { CompanyModel } from '../../model/Company';
 import { CommonModule } from '@angular/common';
@@ -11,7 +11,9 @@ import { error } from 'console';
   templateUrl: './card-component.component.html',
   styleUrl: './card-component.component.css'
 })
-export class CardComponentComponent implements OnInit {
+export class CardComponentComponent {
+
+  @Input() companyId: number | null = null;
 
   company?: CompanyModel
 
@@ -19,15 +21,12 @@ export class CardComponentComponent implements OnInit {
 
   constructor(private companyService: CompanyService, private route: ActivatedRoute) { }
 
-  ngOnInit(): void {
-    this.route.params.subscribe(params => {
-      const companyId = +params['companyId']; // Assumes you have a 'companyId' param in your route
-      if (companyId) {
-        this.getCompanyById(companyId);
-      } else {
-        console.error('companyId non trovato nella route');
-      }
-    });
+  ngOnChanges() {
+    console.log('companyId ricevuto ', this.companyId);
+
+    if(this.companyId !== null) {
+      this.getCompany(this.companyId);
+    }
   }
 
   show() {
@@ -38,16 +37,11 @@ export class CardComponentComponent implements OnInit {
     this.visible = false;
   }
 
-  getCompanyById(companyId: number) {
-    this.companyService.getCompanyById(companyId).subscribe({
-      next: (response) => {
-        console.log('response ', response);
-        this.company = response;
-      },
-      error: (error) => {
-        console.error('error ', error);
-      }
-    })
+  getCompany(id: number) {
+    this.companyService.getCompany(id).subscribe({
+      next: c => this.company = c, 
+      error: err => console.error('errore caricamento companyId ', err)
+    });
   }
 
 

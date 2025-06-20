@@ -1,7 +1,7 @@
- <div class="card" style="font-weight: bold;" *ngIf="visible">
+ <div class="card" style="font-weight: bold;" *ngIf="visible && company">
         <div class="header" >
             <div class="status-indicator" ></div>
-            <h2 class="company-name">Azienda - {{company?.name}}</h2>
+            <h2 class="company-name">{{company.name}}</h2>
         </div>
         
         <div class="info-section">
@@ -9,29 +9,29 @@
                 <span class="info-label">
                     Stato: 
                 </span>
-                <span class="info-value">{{company?.status}}</span>
+                <span class="info-value">{{company.status}}</span>
             </div>
             <div class="info-item">
                 <span class="info-label">Manager:</span>
-                <span class="info-value">3</span>
+                <span class="info-value">{{company.Manager}}</span>
             </div>
             <div class="info-item">
                 <span class="info-label">Senior:</span>
-                <span class="info-value">4</span>
+                <span class="info-value">{{company.Senior}}</span>
             </div>
             <div class="info-item">
                 <span class="info-label">Consultant:</span>
-                <span class="info-value">1</span>
+                <span class="info-value">{{company.Consultant}}</span>
             </div>
             <div class="info-item">
                 
                 <span class="info-label">Turni:</span>
-                <span class="info-value">8</span>
+                <span class="info-value">{{company.collaborationTurns}}</span>
             </div>
             <div class="info-item">
                 
                 <span class="info-label">Valore progetto per turno:</span>
-                <span class="info-value">10000€</span>
+                <span class="info-value">{{company.expectedRevenue}}</span>
             </div>
         </div>
         <div class="btn-container">        
