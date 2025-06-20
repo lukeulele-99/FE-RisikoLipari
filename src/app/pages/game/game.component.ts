@@ -17,10 +17,12 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { EmployeeService } from '../../services/employee/employee.service';
 import { CardComponentComponent } from "../../company/card-component/card-component.component";
 import { Response } from '../../Response';
+import { TableBudgetComponent } from "../../table-budget/table-budget.component";
+
 
 @Component({
   selector: 'app-game',
-  imports: [MapComponent, CompanyComponent, CommonModule, EmployeeComponent, CardComponentComponent],
+  imports: [MapComponent, CompanyComponent, CommonModule, EmployeeComponent, CardComponentComponent, TableBudgetComponent],
   templateUrl: './game.component.html',
   styleUrl: './game.component.css'
 })
