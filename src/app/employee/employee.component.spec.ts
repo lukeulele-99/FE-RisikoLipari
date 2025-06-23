@@ -10,15 +10,20 @@ import { EmployeeService } from '../services/employee/employee.service';
   templateUrl: './employee.component.html',
   styleUrl: './employee.component.css'
 })
-export class EmployeeComponent implements OnInit{
-  employees : Employee[] = [];
-roleStats: any;
+export class EmployeeComponent implements OnInit {
+isHiring: any;
+  hireEmployees(arg0: string, arg1: any) {
+    throw new Error('Method not implemented.');
+  }
+  employees: Employee[] = [];
+  roleStats: any;
+  currentGameId: any;
 
-  constructor(private employeeService: EmployeeService) {}
+  constructor(private employeeService: EmployeeService) { }
 
   ngOnInit(): void {
-      this.employeeService.getEmployee().subscribe({
-        next: (response) => {
+    this.employeeService.getEmployeeByGame(this.currentGameId).subscribe({
+      next: (response) => {
         console.log('response', response)
         if (Array.isArray(response) && response.length > 0) {
           this.employees = response;
@@ -26,10 +31,10 @@ roleStats: any;
           this.employees = [];
         }
       },
-      error : (error) => {
+      error: (error) => {
         console.error('Error ', error);
         this.employees = [];
       }
-      });
+    });
   }
 }

@@ -1,4 +1,4 @@
-<div class="tabella-container">
+<div class="tabella-container" *ngIf="employees">
 
 
     <!--  <ul *ngFor="let employee of employees">
@@ -21,7 +21,7 @@
                 <th>Disponibili</th>
             </tr>
             <tr>
-                
+
                 <th>MANAGER</th>
                 <td class="Manager">
                     {{roleStats["Manager"].totali}}
@@ -31,7 +31,7 @@
                 </td>
                 <td class="Manager">
                     {{roleStats["Manager"].disponibili}}
-                    
+
                 </td>
             </tr>
             <tr>
@@ -60,7 +60,17 @@
             </tr>
         </tbody>
     </table>
-        <input id="btn-manager" type="submit" value="ASSUMI">
-        <input id="btn-senior" type="submit" value="ASSUMI">
-        <input id="btn-consultant" type="submit" value="ASSUMI">
+    <div class="assunzione-container">
+        <button [disabled]="isHiring" (click)="hireEmployees('Manager', currentGameId)">
+            Assumi Manager
+        </button>
+
+        <button [disabled]="isHiring" (click)="hireEmployees('Senior', currentGameId)">
+            Assumi Senior
+        </button>
+
+        <button [disabled]="isHiring" (click)="hireEmployees('Consultant', currentGameId)">
+            Assumi Consultant
+        </button>
+    </div>
 </div>

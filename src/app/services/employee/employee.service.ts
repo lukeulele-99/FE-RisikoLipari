@@ -9,11 +9,18 @@ import { Employee } from '../../model/Employee';
 })
 export class EmployeeService {
 
-  private getEmploByGame = 'http://localhost:8080/api/employee/game';
+  private getEmploByGame = '/api/employee/game';
+
+  private postEmploHire = '/api/employee/hire';
 
   constructor(private http: HttpClient) { }
 
   getEmployeeByGame(gameId: number): Observable<Employee[]> { // passare l'id del gameId  /game/gameId
     return this.http.get<Employee[]>(`${this.getEmploByGame}/${gameId}`);
+  }
+
+  hireEmployees(role: string, gameId: number): Observable<Employee> {
+    const body = { role, gameId };
+    return this.http.post<Employee>(this.postEmploHire, body);
   }
 }
