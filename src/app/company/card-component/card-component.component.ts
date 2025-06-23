@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { error } from 'console';
 import { EmployeeService } from '../../services/employee/employee.service';
 import { Employee } from '../../model/Employee';
+import { stat } from 'fs';
 
 @Component({
   selector: 'app-card-component',
@@ -21,7 +22,11 @@ export class CardComponentComponent {
 
   visible: boolean = false;
 
-  
+  @Input() roleStats!: {
+    [key: string]: { totali: number; staffati: number; disponibili: number };
+  };
+
+
   constructor(private companyService: CompanyService, private route: ActivatedRoute, private employeeService: EmployeeService) { }
 
   ngOnChanges() {
@@ -46,7 +51,7 @@ export class CardComponentComponent {
     this.companyService.getCompany(id).subscribe({
       next: c => {
         this.company = c;
-        
+
       },
       error: err => console.error('errore caricamento companyId ', err)
     });
@@ -63,6 +68,10 @@ export class CardComponentComponent {
       }
     })
   }
-  
+
+  isAnyRoleUnavailable(): boolean {
+    return Object.values(this.roleStats).some(stat => stat.disponibili === 0);
+  }
+
 
 }

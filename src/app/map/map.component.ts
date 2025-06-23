@@ -35,7 +35,7 @@ export class MapComponent implements OnInit{
 
 
 
-  companyColors: any = {
+  companyColors: { [key: string]: string } = {
     //PROVARE IGNORE CASE
     //TODO aggiornamento colore con status back-end
     //TODO DELOITTE MARCHE FIX, KMPG LIGURIA, PWC VALLE, ACCENTURE ED EY TRENTINO  
@@ -110,7 +110,9 @@ export class MapComponent implements OnInit{
 
   isSelected(nodeId: string) {
     const companyName = this.nodeIdToCompanyName[nodeId];
+    //const companyStatus = this.companyColors[nodeId];
     const matchedCompany = this.companiesInGame.find(c => c.name === companyName);
+    //const matchedCompanyStatus = this.companiesInGame.find(c => c.status === companyStatus);
 
     if (matchedCompany) {
       this.selectedCompanyId = matchedCompany.id;

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Employee } from '../model/Employee';
 import { EmployeeService } from '../services/employee/employee.service';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -15,6 +15,7 @@ export class EmployeeComponent implements OnInit {
   employees: Employee[] = [];
   currentGameId!: number;
   isHiring = false;
+  @Output() roleStatsChanged = new EventEmitter<any>();
   roleStats: {
     [key: string]: { totali: number; staffati: number; disponibili: number }
   } = {
@@ -78,6 +79,8 @@ export class EmployeeComponent implements OnInit {
         }
       }
     })
+
+    this.roleStatsChanged.emit(this.roleStats);
   }
 
   hireEmployees(role: string, gameId: number) {

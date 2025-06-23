@@ -34,6 +34,7 @@ export class GameComponent implements OnInit {
   turns: TurnModel[] = [];
   gameId : number = 0
   createdTurn?: any;
+  roleStatsFromChild: any;
 
 
   constructor(
