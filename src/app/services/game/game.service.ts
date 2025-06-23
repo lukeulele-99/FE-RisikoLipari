@@ -10,9 +10,9 @@ import { AuthService } from '../auth.service';
 })
 export class GameService {
 
-  private apiUrl = 'http://localhost:8080/api/game';
+  private apiUrl = '/api/game';
 
-  private createUrlGame = 'http://localhost:8080/api/game'
+  private createUrlGame = '/api/game'
 
   gameUpdatedSubject = new BehaviorSubject<any>(null);
 
