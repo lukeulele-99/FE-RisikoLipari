@@ -13,6 +13,8 @@ export class CompanyService {
 
   private getUrlCompGame = '/api/company/game';
 
+  private putUrlCompCollab = '/api/company/collaborate';
+
  // companyUpdatedSubject = new BehaviorSubject<any>(null);
 
   constructor(private http: HttpClient) { }
@@ -27,5 +29,9 @@ export class CompanyService {
 
   getCompaniesByGameId(gameId: number): Observable<CompanyModel> {
     return this.http.get<CompanyModel>(`${this.getUrlCompGame}/${gameId}`);
+  }
+
+  startCollaboration(id: number): Observable<CompanyModel> {
+    return this.http.put<CompanyModel>(`${this.putUrlCompCollab}/${id}`, null);
   }
 }

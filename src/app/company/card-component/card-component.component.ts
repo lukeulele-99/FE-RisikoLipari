@@ -21,15 +21,7 @@ export class CardComponentComponent {
 
   visible: boolean = false;
 
-  /* roleStats: {
-    [key: string]: { totali: number; }
-  } = {
-      Manager: { totali: 0 },
-      Senior: { totali: 0 },
-      Consultant: { totali: 0 }
-    };
-  objectKeys = Object.keys;
- */
+  
   constructor(private companyService: CompanyService, private route: ActivatedRoute, private employeeService: EmployeeService) { }
 
   ngOnChanges() {
@@ -54,21 +46,23 @@ export class CardComponentComponent {
     this.companyService.getCompany(id).subscribe({
       next: c => {
         this.company = c;
-        /* this.getEmployeesByCompany(); */
+        
       },
       error: err => console.error('errore caricamento companyId ', err)
     });
   }
 
 
-
-  /* getEmployeesByCompany() {
-    if(this.company) {
-      this.roleStats["Manager"].totali = this.company.Manager || 0;
-      this.roleStats["Senior"].totali = this.company.Senior || 0;
-      this.roleStats["Consultant"].totali = this.company.Consultant || 0;
-    }
+  startCollaboration(id: number) {
+    this.companyService.startCollaboration(id).subscribe({
+      next: () => {
+        console.log(this.company?.status);
+      },
+      error: (error) => {
+        console.error('errore avvio collaborazione ', error);
+      }
+    })
   }
- */
+  
 
 }
