@@ -1,8 +1,8 @@
 <app-map #popup [gameId]="gameId"></app-map>
-<app-employee (roleStatsChanged)="roleStatsFromChild = $event"></app-employee>
+<app-employee></app-employee>
 <app-company></app-company>
 <app-table-budget></app-table-budget>
-<app-card-component [roleStats]="roleStatsFromChild"></app-card-component>
+<app-card-component [roleStats]="roleStats"></app-card-component>
 
 <!-- <app-card-component></app-card-component> -->
 <!-- 

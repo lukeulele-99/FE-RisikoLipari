@@ -11,9 +11,9 @@ export class TurnService {
 
   
 
-  private getUrlTurn = 'http://localhost:8080/api/turn';
+  private getUrlTurn = '/api/turn';
 
-  private postUrlTurn = 'http://localhost:8080/api/turn/next';
+  private postUrlTurn = '/api/turn/next';
 
   constructor(private http: HttpClient) { }
 

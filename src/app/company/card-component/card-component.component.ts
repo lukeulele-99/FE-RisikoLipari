@@ -7,6 +7,7 @@ import { error } from 'console';
 import { EmployeeService } from '../../services/employee/employee.service';
 import { Employee } from '../../model/Employee';
 import { stat } from 'fs';
+import { OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-card-component',
@@ -14,7 +15,7 @@ import { stat } from 'fs';
   templateUrl: './card-component.component.html',
   styleUrl: './card-component.component.css'
 })
-export class CardComponentComponent {
+export class CardComponentComponent implements OnChanges{
 
   @Input() companyId: number | null = null;
 
@@ -22,14 +23,14 @@ export class CardComponentComponent {
 
   visible: boolean = false;
 
-  @Input() roleStats!: {
-    [key: string]: { totali: number; staffati: number; disponibili: number };
-  };
+ @Input() roleStats!: {
+  [key: string]: { totali: number; staffati: number; disponibili: number };
+ };
 
 
   constructor(private companyService: CompanyService, private route: ActivatedRoute, private employeeService: EmployeeService) { }
 
-  ngOnChanges() {
+  ngOnChanges(changes: SimpleChanges) {
     console.log('companyId ricevuto ', this.companyId);
 
     if (this.companyId !== null) {
@@ -69,9 +70,33 @@ export class CardComponentComponent {
     })
   }
 
-  isAnyRoleUnavailable(): boolean {
-    return Object.values(this.roleStats).some(stat => stat.disponibili === 0);
-  }
+  /* canCollaborate(): boolean {
+    if (!this.company || !this.roleStats) return false;
+
+    //controlla stato azienda
+    if (this.company.status === 'In Collaborazione' || this.company.status === 'Non Disponibile') {
+      return false;
+    }
+
+    //controlla che i dipendenti siano sufficienti
+    const required: { Manager: number; Senior: number; Consultant: number } = {
+      Manager: this.company.manager || 0,
+      Senior: this.company.senior || 0,
+      Consultant: this.company.consultant || 0
+    };
+
+    type Role = 'Manager' | 'Senior' | 'Consultant';
+    const roles: Role[] = ['Manager', 'Senior', 'Consultant'];
+
+    for (const role of roles) {
+      const disponibili = this.roleStats[role]?.disponibili || 0;
+      if (disponibili < required[role]) {
+        return false;
+      }
+    }
+
+    return true;
+  } */
 
 
 }

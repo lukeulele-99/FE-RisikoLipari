@@ -1,48 +1,53 @@
- <div class="card" style="font-weight: bold;" *ngIf="visible && company">
-        <div class="header" >
-            <div class="status-indicator" ></div>
-            <h2 class="company-name">{{company.name}}</h2>
-        </div>
-        
-        <div class="info-section">
-            <div class="info-item">
-                <span class="info-label">
-                    Stato: 
-                </span>
-                <span class="info-value">{{company.status}}</span>
-            </div>
-            <div class="info-item">
-                <span class="info-label">Manager:</span>
-                <span class="info-value">{{company.manager}}</span>
-            </div>
-            <div class="info-item">
-                <span class="info-label">Senior:</span>
-                <span class="info-value">{{company.senior}}</span>
-            </div>
-            <div class="info-item">
-                <span class="info-label">Consultant:</span>
-                <span class="info-value">{{company.consultant}}</span>
-            </div>
-            <div class="info-item">
-                
-                <span class="info-label">Turni:</span>
-                <span class="info-value">{{company.collaborationTurns}}</span>
-            </div>
-            <div class="info-item">
-                
-                <span class="info-label">Valore progetto per turno:</span>
-                <span class="info-value">{{company.expectedRevenue}}</span>
-            </div>
-        </div>
-        <div class="btn-container">        
-        <button class="collaborate-btn" [disabled]="isAnyRoleUnavailable()" (click)="startCollaboration(companyId!)">COLLABORA</button>
-        <button class="collaborate-btn" (click)="hide()">CHIUDI</button>
-        </div>
+<div class="card" style="font-weight: bold;" *ngIf="visible && company">
+    <div class="header">
+        <div class="status-indicator"></div>
+        <h2 class="company-name">{{company.name}}</h2>
+    </div>
 
-    </div> 
+    <div class="info-section">
+        <div class="info-item">
+            <span class="info-label">
+                Stato:
+            </span>
+            <span class="info-value">{{company.status}}</span>
+        </div>
+        <div class="info-item">
+            <span class="info-label">Manager:</span>
+            <span class="info-value">{{company.manager}}</span>
+        </div>
+        <div class="info-item">
+            <span class="info-label">Senior:</span>
+            <span class="info-value">{{company.senior}}</span>
+        </div>
+        <div class="info-item">
+            <span class="info-label">Consultant:</span>
+            <span class="info-value">{{company.consultant}}</span>
+        </div>
+        <div class="info-item">
+
+            <span class="info-label">Turni:</span>
+            <span class="info-value">{{company.collaborationTurns}}</span>
+        </div>
+        <div class="info-item">
+
+            <span class="info-label">Valore progetto per turno:</span>
+            <span class="info-value">{{company.expectedRevenue}}</span>
+        </div>
+    </div>
+    <div class="btn-container">
+        <button class="collaborate-btn" [disabled]="!company ||
+                   company.status !== 'Disponibile' ||
+                   (roleStats && roleStats['Manager'] && roleStats['Manager'].disponibili < (company.manager || 0)) ||
+                   (roleStats && roleStats['Senior'] && roleStats['Senior'].disponibili < (company.senior || 0)) ||
+                   (roleStats && roleStats['Consultant'] && roleStats['Consultant'].disponibili < (company.consultant || 0))"
+            (click)="startCollaboration(companyId!)">
+            COLLABORA
+        </button>
+        <button class="collaborate-btn" (click)="hide()">CHIUDI</button>
+    </div>
+
+</div>
 
 <!-- TODO se collaboro, scritta diventa "turni rimanenti" -->
 
 <!-- TODO turni che diminuiscono in info-value -->
-
-

@@ -32,9 +32,16 @@ export class GameComponent implements OnInit {
   games: GameModel[] = [];
   currentUser: UserModel | null = null;
   turns: TurnModel[] = [];
-  gameId : number = 0
+  gameId: number = 0
   createdTurn?: any;
-  roleStatsFromChild: any;
+
+  roleStats: {
+    [key: string]: { totali: number; staffati: number; disponibili: number };
+  } = {
+      Manager: { totali: 0, staffati: 0, disponibili: 0 },
+      Senior: { totali: 0, staffati: 0, disponibili: 0 },
+      Consultant: { totali: 0, staffati: 0, disponibili: 0 }
+    };
 
 
   constructor(
@@ -61,16 +68,16 @@ export class GameComponent implements OnInit {
 
     this.route.params.subscribe((params: Params) => {
       const idFromRoute = params['id'];
-      if(idFromRoute) {
+      if (idFromRoute) {
         this.gameId = +idFromRoute;
         this.getTurns();
         this.employeeService.getEmployeeByGame(this.gameId);
-      } 
+      }
     })
 
     //leggere il parametro dell'id passato su user component
- 
-    
+
+
 
 
     /* this.employeeService.getEmployees(); */
