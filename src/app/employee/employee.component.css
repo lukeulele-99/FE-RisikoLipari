@@ -1,7 +1,7 @@
 .tabella-container {
   display: flex;
   justify-content: flex-end;
-  margin-top: -900px;
+  margin-top: -790px;
   margin-right: 60px;
 
 }
@@ -22,7 +22,7 @@ td {
 
 thead th {
   background-color: #f2f2f2;
-  font-weight: bold;
+  font-weight: bolder;
 }
 
 tbody th {
@@ -32,7 +32,13 @@ tbody th {
 
 /* TODO BTN ALLINEARE */
 
-#btn-manager {
+/*TODO CSS BOTTONI NUOVI  */
+
+.assunzione-container {
+  width: 90px;
+}
+
+.btn-manager {
   width: 65px;
   background-color:  rgb(113, 113, 115);
   border-color: black;
@@ -40,16 +46,16 @@ tbody th {
   margin-top: 35px;
 }
 
-#btn-senior {
+.btn-senior {
   width: 65px;
   background-color:  rgb(113, 113, 115);
   height: 37px;
-  margin-top: 70px;
-  margin-left: -65px;
+  margin-bottom: 30px;
+  /* margin-left: -65px; */
   border-color: black;
 }
 
-#btn-consultant {
+.btn-consultant {
   width: 65px;
   background-color: rgb(113, 113, 115);
   height: 37px;

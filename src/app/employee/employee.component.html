@@ -61,15 +61,15 @@
         </tbody>
     </table>
     <div class="assunzione-container">
-        <button [disabled]="isHiring" (click)="hireEmployees('Manager', currentGameId)">
+        <button class="btn-manager" [disabled]="isHiring" (click)="hireEmployees('Manager', currentGameId)">
             Assumi Manager
         </button>
 
-        <button [disabled]="isHiring" (click)="hireEmployees('Senior', currentGameId)">
+        <button class="btn-senior" [disabled]="isHiring" (click)="hireEmployees('Senior', currentGameId)">
             Assumi Senior
         </button>
 
-        <button [disabled]="isHiring" (click)="hireEmployees('Consultant', currentGameId)">
+        <button class="btn-consultant" [disabled]="isHiring" (click)="hireEmployees('Consultant', currentGameId)">
             Assumi Consultant
         </button>
     </div>
