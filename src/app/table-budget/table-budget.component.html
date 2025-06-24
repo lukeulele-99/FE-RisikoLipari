@@ -1,15 +1,15 @@
-<table class="table-budget">
+<table class="table-budget" *ngIf="currentTurn">
     <tbody>
         <tr>
             <td>
                 <span id="budget-txt">BUDGET:</span>
                 <br><br><br>
-                <span id="budget-number">{{createdTurn ? createdTurn.budget : 10000}}</span>
+                <span id="budget-number">10000</span>
             </td>
             <td>
                 <span id="turn-txt">TURNO:</span>
                 <br><br><br>
-                <span id="turn-number">{{createdTurn ? createdTurn.turns : 0}}</span>
+                <span id="turn-number"></span>
             </td>
         </tr>
     </tbody>
