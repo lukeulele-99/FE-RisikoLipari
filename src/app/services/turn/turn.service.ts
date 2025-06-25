@@ -17,12 +17,12 @@ export class TurnService {
 
   constructor(private http: HttpClient) { }
 
-  getTurns(gameId: number): Observable<Response<any[]>> {
-    return this.http.get<Response<any[]>>(`${this.getUrlTurn}/${gameId}`);
+  getTurns(gameId: number): Observable<TurnModel[]> {
+    return this.http.get<TurnModel[]>(`${this.getUrlTurn}/${gameId}`);
   }
 
-  newTurn(gameId: number): Observable<Response<any[]>> {
-    return this.http.post<Response<any[]>>(`${this.postUrlTurn}/${gameId}`, null);
+  newTurn(gameId: number): Observable<TurnModel> {
+    return this.http.post<TurnModel>(`${this.postUrlTurn}/${gameId}`, null);
   }
 
 }

@@ -31,9 +31,9 @@ export class GameComponent implements OnInit {
 
   games: GameModel[] = [];
   currentUser: UserModel | null = null;
-  turns: TurnModel[] = [];
   gameId: number = 0
   createdTurn?: any;
+  turnUpdateTrigger: number = 0;
 
   roleStats: {
     [key: string]: { totali: number; staffati: number; disponibili: number };
@@ -70,7 +70,6 @@ export class GameComponent implements OnInit {
       const idFromRoute = params['id'];
       if (idFromRoute) {
         this.gameId = +idFromRoute;
-        this.getTurns();
         this.employeeService.getEmployeeByGame(this.gameId);
       }
     })
@@ -100,22 +99,7 @@ export class GameComponent implements OnInit {
     })
   }
 
-  getTurns(): void {
-    this.turnService.getTurns(this.gameId).subscribe({
-      next: (response) => {
-        console.log('response ', response);
-        if (Array.isArray(response) && response.length > 0) {
-          this.turns = response;
-        } else {
-          this.turns = [];
-        }
-      },
-      error: (error) => {
-        console.error('error ', error);
-        this.turns = [];
-      }
-    })
-  }
+  
 
   newTurn() {
 
@@ -123,6 +107,7 @@ export class GameComponent implements OnInit {
       next: (response) => {
         this.createdTurn = response;
         console.log('response ', response);
+        this.turnUpdateTrigger++;
       },
       error: (error) => {
         console.error('error ', error);

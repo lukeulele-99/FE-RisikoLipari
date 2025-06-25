@@ -1,4 +1,4 @@
-<table class="table-budget"> <!-- *ngIf="currentTurn" -->
+<table class="table-budget">   
     <tbody>
         <tr>
             <th id="budget-txt">BUDGET:</th>
@@ -6,7 +6,7 @@
         </tr>
         <tr>
             <td id="budget-number">10000</td>
-            <td id="turn-number"></td>
+            <td id="turn-number" *ngIf="currentTurn !== undefined">{{currentTurn.turns}}</td>
         </tr>
     </tbody>
 </table>

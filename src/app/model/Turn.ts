@@ -3,6 +3,5 @@ import { GameModel } from "./Game";
 export interface TurnModel {
     id: number,
     turns: number,
-    gameId: GameModel,
-    budget : number
+    gameId: GameModel
 }

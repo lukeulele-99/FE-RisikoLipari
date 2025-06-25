@@ -2,11 +2,11 @@
 <app-employee></app-employee>
 <app-company></app-company>
 <app-card-component [roleStats]="roleStats"></app-card-component>
-<app-table-budget></app-table-budget>
+<app-table-budget [updateTrigger]="turnUpdateTrigger"></app-table-budget>
 
 <button class="add-turn" (click)="newTurn()">Nuovo turno</button>
 
-<div class="turn">
+<!-- <div class="turn">
 
     <ul *ngIf="createdTurn">
         <li>
@@ -16,7 +16,7 @@
             {{createdTurn.gameId}}
         </li>
     </ul>
-</div>
+</div> -->
 
 
 <!-- Game:
