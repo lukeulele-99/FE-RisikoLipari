@@ -1,7 +1,7 @@
 .tabella-container {
   display: flex;
   justify-content: flex-end;
-  margin-top: -600px;
+  margin-top: -550px;
   margin-right: 60px;
 
 }
@@ -36,9 +36,10 @@ tbody th {
 
 .assunzione-container {
   width: 90px;
+  margin-top: 40px;
 }
 
-.btn-manager {
+/* .btn-manager {
   width: 65px;
   background-color:  rgb(113, 113, 115);
   border-color: black;
@@ -51,7 +52,7 @@ tbody th {
   background-color:  rgb(113, 113, 115);
   height: 37px;
   margin-bottom: 30px;
-  /* margin-left: -65px; */
+  /* margin-left: -65px; 
   border-color: black;
 }
 
@@ -62,4 +63,5 @@ tbody th {
   margin-top: 105px;
   border-color: black;
   
-}
+} */
+
