@@ -1,12 +1,119 @@
-<h1> TXT di prova </h1>
-<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet accumsan tortor. Nulla facilisi. Duis sagittis, massa vitae bibendum pretium, lorem justo pharetra lorem, in fermentum lorem nibh vel ligula. Sed in bibendum purus. Aliquam erat volutpat. Vivamus porta magna vitae neque porttitor, a efficitur justo viverra.
-
-Sed sollicitudin, augue vel fermentum faucibus, libero justo sodales purus, in dignissim risus justo at eros. Nunc imperdiet augue a finibus porta. Suspendisse potenti. Pellentesque sed arcu id nisi malesuada placerat nec eget magna.
-
-Curabitur posuere ligula sed massa posuere, nec ultrices leo mattis. Vivamus vel mauris eget nunc varius gravida. In sodales convallis risus, nec tempor risus ultricies a. Proin blandit ante non ex commodo posuere. Duis sed velit facilisis, malesuada nunc id, euismod augue.
-
-Morbi in magna sit amet leo accumsan laoreet. Integer id urna ut lacus vehicula eleifend. Proin feugiat tincidunt eros, et fermentum neque scelerisque in. Sed id tincidunt tortor, id blandit nisi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-
-Phasellus ultricies velit id leo finibus sagittis. Etiam commodo ligula vitae magna suscipit, nec finibus erat fermentum. Suspendisse potenti. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Curabitur vehicula felis et lorem dignissim cursus.
-
-</p>
+<div class="container">
+        <div class="header">
+            <h1>Business Game Lipari - Risiko</h1>
+            <p class="subtitle">Conquista l'Italia attraverso partnership strategiche</p>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <h2>🎯 Contesto</h2>
+                <p>Immedesimati nel CEO di Lipari Consulting ed aiuta l'azienda ad aumentare il numero di aziende partner con cui lavorare. Il gioco si svolge in Italia dove ogni regione ha potenziali clienti (società di consulenza) con cui collaborare. Lo scopo è la conquista dell'intera penisola italiana.</p>
+                
+                <div class="highlight-box">
+                    <h3>🚀 Cosa dovrai fare?</h3>
+                    <p>• Pianificare le collaborazioni<br>
+                    • Gestire le risorse<br>
+                    • Definire la migliore strategia</p>
+                    <p><strong>Sarai in grado di diventare la miglior azienda di consulenza in partnership nel minor tempo possibile?</strong></p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>⚙️ Funzionamento</h2>
+                <p>Le azioni intraprese avranno effetti sul budget a disposizione. Ogni turno (monitorati da un contatore) il budget può aumentare in base al numero di progetti in partnership attivi e diminuire in base al costo dei dipendenti non utilizzati (destaffati).</p>
+                
+                <h3>📊 Risorse a Disposizione</h3>
+                <p>Il giocatore ad inizio partita avrà a disposizione:</p>
+                
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <h4>👥 Dipendenti</h4>
+                        <p>• 3 Manager<br>
+                        • 5 Senior Consultant<br>
+                        • 10 Consultant</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>💰 Budget Iniziale</h4>
+                        <p>10.000 €</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>🤝 Partnership</h4>
+                        <p>Una azienda partner iniziale</p>
+                    </div>
+                </div>
+                
+                <h3>🏢 Espansione Commerciale</h3>
+                <p>In ogni turno il giocatore dovrà prendere delle decisioni per aumentare il numero di aziende partner e/o il fatturato. Ogni nodo (azienda) avrà i seguenti parametri:</p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>• Numero di dipendenti richiesti per lavorare in partnership</li>
+                    <li>• Valore del progetto (in euro)</li>
+                    <li>• Durata del progetto (turni)</li>
+                </ul>
+                
+                <h3>🎮 Interfaccia di Gioco</h3>
+                <p>Il gioco sarà svolto attraverso l'utilizzo di un file Excel con le seguenti funzionalità:</p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>• Tasto <strong>"nuovo turno"</strong> - Attenzione: più turni fai più sarai svantaggiato!</li>
+                    <li>• Tasto <strong>"assumi"</strong> - Per acquistare le risorse necessarie</li>
+                </ul>
+                
+                <div class="node-legend">
+                    <div class="legend-item">
+                        <div class="legend-color green"></div>
+                        <span>Celle visitabili</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color red"></div>
+                        <span>Potenzialmente visitabili</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color blue"></div>
+                        <span>Nodi visitati con risorse</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color lightblue"></div>
+                        <span>Progetti conclusi</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>⚠️ Vincoli</h2>
+                <div class="constraints-list">
+                    <ul>
+                        <li>Il giocatore può accedere ad un nodo presente in una nuova regione solo se quest'ultima confina con una per cui ha già effettuato una collaborazione</li>
+                        <li>Per lavorare in partnership con un'azienda il giocatore deve avere a disposizione le risorse che il progetto richiede</li>
+                        <li>Il giocatore può accedere ad una nuova azienda presente in una regione solo se c'è già stata una collaborazione con tale azienda</li>
+                        <li>Ad ogni turno è possibile visitare esclusivamente un nodo</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>🏆 Obiettivo</h2>
+                <p>L'obiettivo del gioco è quello di aver completato tutti i nodi intraprendendo i progetti di partnership con tutte le aziende a disposizione nel minor tempo possibile, massimizzando il budget.</p>
+                
+                <div class="highlight-box">
+                    <h3>🇮🇹 Pronto a conquistare l'Italia?</h3>
+                    <p>Dovrai bilanciare strategicamente tempo e risorse per ottenere il punteggio più alto possibile!</p>
+                </div>
+                
+                <h3>📈 Calcolo del Punteggio</h3>
+                <div class="score-formula">
+                    <h4>Formula di Calcolo</h4>
+                    <div class="formula">
+                        Se Budget > 0:<br>
+                        Punteggio = Budget × (1 - Num_turni/100)
+                    </div>
+                    <div class="formula">
+                        Se Budget < 0:<br>
+                        Punteggio = Budget × (Num_turni/100)
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Business Game Lipari - Risiko | Milano, 13/12/2024 | RIPRODUZIONE RISERVATA</p>
+        </div>
+    </div>
