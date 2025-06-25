@@ -34,7 +34,7 @@
         <form [formGroup]="userForm">
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input id="email" formControlName="email" name="email" type="email" required />
+                <input id="email" formControlName="email" name="email" type="email" required  placeholder="Inserisci email..."/>
             </div>
 
             <button type="submit" (click)="addUser()">
