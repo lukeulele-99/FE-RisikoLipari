@@ -18,8 +18,12 @@ export class GameService {
 
   constructor(private http: HttpClient, private authService: AuthService) { }
 
-  getGames(): Observable<Response<GameModel[]>> {
-    return this.http.get<Response<GameModel[]>>(this.apiUrl);
+  getGames(): Observable<GameModel[]> {
+    return this.http.get<GameModel[]>(this.apiUrl);
+  }
+
+  getGameById(id: number): Observable<GameModel> {
+    return this.http.get<GameModel>(`${this.apiUrl}/${id}`)
   }
 
   createGame(): Observable<GameModel> {

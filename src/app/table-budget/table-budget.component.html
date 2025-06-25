@@ -5,7 +5,7 @@
             <th id="turn-txt">TURNO:</th>
         </tr>
         <tr>
-            <td id="budget-number">10000</td>
+            <td id="budget-number" *ngIf="game">{{game.budget}}</td>
             <td id="turn-number" *ngIf="currentTurn !== undefined">{{currentTurn.turns}}</td>
         </tr>
     </tbody>

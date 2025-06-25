@@ -34,6 +34,7 @@ export class GameComponent implements OnInit {
   gameId: number = 0
   createdTurn?: any;
   turnUpdateTrigger: number = 0;
+  budgetUpdateTrigger = 0;
 
   roleStats: {
     [key: string]: { totali: number; staffati: number; disponibili: number };
@@ -82,7 +83,7 @@ export class GameComponent implements OnInit {
     /* this.employeeService.getEmployees(); */
   }
 
-  getGames(): void {
+ /*  getGames(): void {
     this.gameService.getGames().subscribe({
       next: (response) => {
         console.log('response', response)
@@ -97,7 +98,7 @@ export class GameComponent implements OnInit {
         this.games = [];
       }
     })
-  }
+  } */
 
   
 
@@ -108,6 +109,7 @@ export class GameComponent implements OnInit {
         this.createdTurn = response;
         console.log('response ', response);
         this.turnUpdateTrigger++;
+        this.budgetUpdateTrigger++;
       },
       error: (error) => {
         console.error('error ', error);

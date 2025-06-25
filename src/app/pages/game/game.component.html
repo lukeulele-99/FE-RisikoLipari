@@ -2,7 +2,9 @@
 <app-employee></app-employee>
 <app-company></app-company>
 <app-card-component [roleStats]="roleStats"></app-card-component>
-<app-table-budget [updateTrigger]="turnUpdateTrigger"></app-table-budget>
+
+<app-table-budget [updateBudget]="budgetUpdateTrigger" [updateTrigger]="turnUpdateTrigger"></app-table-budget>
+
 
 <button class="add-turn" (click)="newTurn()">Nuovo turno</button>
 
