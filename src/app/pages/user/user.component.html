@@ -7,25 +7,11 @@
 <div class="register-container" *ngIf="isUserLoggedIn(); else register_form">
     <!-- <h2>Ciao, {{currentUser.username}}</h2> -->
 
-    <h2>ciao </h2>
+    <h2>Benvenuto a Risiko Lipari! <!-- {{currentUser}} --> </h2>
 
-    <button type="submit" (click)="createGame()">Avvia partita</button>
-    <button type="submit" (click)="exitGame()">Logout</button>
-
-
-    <!-- <form [formGroup]="userForm">
-        <div class="form-group">
-            <label for="email">Email:</label>
-            <input id="email" formControlName="email" name="email" type="email" required />
-        </div>
-
-        <button type="submit" (click)="createGame()">
-
-            Avvia partita
-        </button>
-
-    </form>  -->
-</div> 
+    <button id="start" type="submit" (click)="createGame()">Avvia partita</button>
+    <button id="logout"type="submit" (click)="exitGame()">Logout</button>
+</div>
 
 <ng-template #register_form>
     <div class="register-container">
@@ -34,18 +20,15 @@
         <form [formGroup]="userForm">
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input id="email" formControlName="email" name="email" type="email" required  placeholder="Inserisci email..."/>
+                <input id="email" formControlName="email" name="email" type="email" required
+                    placeholder="Inserisci email..." />
             </div>
 
             <button type="submit" (click)="addUser()">
 
-                Registrati o Accedi
+                Registrati / Accedi
             </button>
 
         </form>
     </div>
 </ng-template>
-
-
-
-<!-- <button type="submit" (click)="createGame()">Avvia partita</button> -->

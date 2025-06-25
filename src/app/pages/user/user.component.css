@@ -32,6 +32,14 @@
     color: #555;
 }
 
+#start {
+    margin-left: 30px;
+}
+
+#logout {
+    margin-left: 75px;
+}
+
 
 .form-group input[type="email"] {
     padding: 10px;
