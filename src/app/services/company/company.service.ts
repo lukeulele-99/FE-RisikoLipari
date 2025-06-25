@@ -15,7 +15,7 @@ export class CompanyService {
 
   private putUrlCompCollab = '/api/company/collaborate';
 
- // companyUpdatedSubject = new BehaviorSubject<any>(null);
+  newCollaborationSubject = new BehaviorSubject<CompanyModel | null>(null);
 
   constructor(private http: HttpClient) { }
 
@@ -33,5 +33,9 @@ export class CompanyService {
 
   startCollaboration(id: number): Observable<CompanyModel> {
     return this.http.put<CompanyModel>(`${this.putUrlCompCollab}/${id}`, null);
+  }
+
+  emitNewCollaboration(c: CompanyModel) {
+    this.newCollaborationSubject.next(c);
   }
 }

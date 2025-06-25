@@ -61,8 +61,10 @@ export class CardComponentComponent implements OnChanges{
 
   startCollaboration(id: number) {
     this.companyService.startCollaboration(id).subscribe({
-      next: () => {
+      next: (c) => {
+        this.company = c;
         console.log(this.company?.status);
+        this.companyService.emitNewCollaboration(c);
       },
       error: (error) => {
         console.error('errore avvio collaborazione ', error);

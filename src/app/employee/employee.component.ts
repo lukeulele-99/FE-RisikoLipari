@@ -4,6 +4,7 @@ import { Employee } from '../model/Employee';
 import { EmployeeService } from '../services/employee/employee.service';
 import { ActivatedRoute, Params } from '@angular/router';
 import { GameService } from '../services/game/game.service';
+import { CompanyService } from '../services/company/company.service';
 
 @Component({
   selector: 'app-employee',
@@ -25,7 +26,7 @@ export class EmployeeComponent implements OnInit {
     };
   objectKeys = Object.keys;
 
-  constructor(private employeeService: EmployeeService, private route: ActivatedRoute, private gameService: GameService) { }
+  constructor(private employeeService: EmployeeService, private route: ActivatedRoute, private gameService: GameService, private companyService: CompanyService) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -37,6 +38,20 @@ export class EmployeeComponent implements OnInit {
         console.error('gameId non trovato nella route');
       }
     });
+
+    this.companyService.newCollaborationSubject.subscribe({
+      next: (company) => {
+        if (company != null) {
+          this.roleStats['Manager'].staffati += company.manager;
+          this.roleStats['Senior'].staffati += company.senior;
+          this.roleStats['Consultant'].staffati += company.consultant;
+          this.roleStats['Manager'].disponibili -= company.manager;
+          this.roleStats['Senior'].disponibili -= company.senior;
+          this.roleStats['Consultant'].disponibili -= company.consultant;
+        }
+
+      }
+    })
   }
 
   getEmployeesByGame(gameId: number): void {
