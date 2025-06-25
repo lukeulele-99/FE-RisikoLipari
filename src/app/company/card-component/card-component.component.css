@@ -1,17 +1,18 @@
 .card {
-    background: white;
+    background: #F9F9F9;
     border-radius: 16px;
     padding: 24px;
     max-width: 320px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border: 1px solid #e0e0e0;
-    position: relative;
+    position: absolute; /* Cambiato da relative ad absolute */
+    top: 200px; /* Sostituisce margin-top: -700px */
+    left: 1020px; /* Sostituisce margin-left: 540px */
     padding-left: 30px;
-    margin-top: -700px;
-    margin-left: 950px;
     text-transform: uppercase;
     font-weight: bold;
     font-family: Arial, sans-serif;
+    z-index: 10; /* Opzionale: per controllare la sovrapposizione */
 }
 
 .header {
@@ -100,7 +101,3 @@
     transform: translateY(0);
 }
 
-/* button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-} */
