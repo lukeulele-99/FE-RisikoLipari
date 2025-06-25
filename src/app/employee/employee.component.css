@@ -1,7 +1,7 @@
 .tabella-container {
   display: flex;
   justify-content: flex-end;
-  margin-top: -790px;
+  margin-top: -600px;
   margin-right: 60px;
 
 }
@@ -61,5 +61,5 @@ tbody th {
   height: 37px;
   margin-top: 105px;
   border-color: black;
-  margin-left: -65px;
+  
 }
