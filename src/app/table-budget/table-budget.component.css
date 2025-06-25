@@ -1,42 +1,33 @@
 .table-budget {
-    height: 80px;
-    margin-left: 907px;
+    position: absolute;
+    top: 500px;
+    right: 125px;
     width: 440px;
     font-family: Arial, sans-serif;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    margin-top: -390px;
+    border-collapse: collapse;
+    z-index: 10;
 }
 
-td {
-    height: 80px;
-    width: 195px;
+.table-budget th,
+.table-budget td {
     border: 1px solid #ccc;
-    padding: 8px 12px;
+    padding: 12px;
+    text-align: center;
+    width: 220px;
+}
+
+.table-budget th {
     background-color: #f2f2f2;
     font-weight: bold;
-    text-align: center;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-#budget-txt , #turn-txt {
-    height: 80px;
-    width: 195px;
-    border: 1px solid #ccc;
-    padding: 8px 12px;
-    background-color: #f2f2f2;
+.table-budget td {
+    background-color: white;
+    font-size: 24px;
     font-weight: bold;
-    text-align: center;
+    color: #333;
 }
-
-#budget-number , #turn-number {
-    font-size: 30px;
-    height: 80px;
-    width: 195px;
-    border: 1px solid #ccc;
-    padding: 8px 12px;
-    background-color: #f2f2f2;
-    font-weight: bolder;
-    text-align: center;
-}
-
-/* TODO BTN ALLINEARE */
-

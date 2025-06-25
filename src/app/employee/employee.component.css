@@ -2,7 +2,7 @@
   display: flex;
   justify-content: flex-end;
   position: absolute;
-  top: 600px; /* Sostituisce margin-top: -900px */
+  top: 650px; /* Sostituisce margin-top: -900px */
   right: 60px; /* Sostituisce margin-right: 60px */
   z-index: 10; /* Opzionale: per controllare la sovrapposizione */
 }

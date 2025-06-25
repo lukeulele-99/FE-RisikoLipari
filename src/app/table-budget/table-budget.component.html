@@ -1,33 +1,12 @@
-<table class="table-budget" *ngIf="currentTurn">
+<table class="table-budget"> <!-- *ngIf="currentTurn" -->
     <tbody>
         <tr>
-            <td>
-                <span id="budget-txt">BUDGET:</span>
-                <br><br><br>
-                <span id="budget-number">10000</span>
-            </td>
-            <td>
-                <span id="turn-txt">TURNO:</span>
-                <br><br><br>
-                <span id="turn-number"></span>
-            </td>
+            <th id="budget-txt">BUDGET:</th>
+            <th id="turn-txt">TURNO:</th>
+        </tr>
+        <tr>
+            <td id="budget-number">10000</td>
+            <td id="turn-number"></td>
         </tr>
     </tbody>
 </table>
-
-
-
-<!-- <div class="table-budget">
-    <td> <span id="budget-txt">BUDGET:</span>
-        <br>
-        <br>
-        <br>
-        <span id="budget-number">20000</span>
-    </td>
-    <td> <span id="turn-txt">TURNO:</span>
-        <br>
-        <br>
-        <br>
-        <span id="turn-number">1</span>
-    </td>
-</div> -->
