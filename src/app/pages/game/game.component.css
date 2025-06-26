@@ -4,6 +4,10 @@ html {
     
 }
 
+body {
+    margin: 0;
+}
+
 .btn-container {
     display: flex;
     justify-content: center;
