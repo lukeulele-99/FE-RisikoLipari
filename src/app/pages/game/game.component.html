@@ -1,5 +1,5 @@
 <app-map #popup [gameId]="gameId"></app-map>
-<app-employee></app-employee>
+<app-employee (budgetChanged)="onBudgetChanged()"></app-employee>
 <app-company></app-company>
 <app-card-component [roleStats]="roleStats"></app-card-component>
 

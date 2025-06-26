@@ -100,6 +100,10 @@ export class GameComponent implements OnInit {
     })
   } */
 
+    onBudgetChanged() {
+      this.budgetUpdateTrigger++;
+    }
+
   
 
   newTurn() {
@@ -109,7 +113,7 @@ export class GameComponent implements OnInit {
         this.createdTurn = response;
         console.log('response ', response);
         this.turnUpdateTrigger++;
-        this.budgetUpdateTrigger++;
+        this.onBudgetChanged();
       },
       error: (error) => {
         console.error('error ', error);

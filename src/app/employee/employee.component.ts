@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Employee } from '../model/Employee';
 import { EmployeeService } from '../services/employee/employee.service';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -16,6 +16,7 @@ export class EmployeeComponent implements OnInit {
   employees: Employee[] = [];
   currentGameId!: number;
   isHiring = false;
+  @Input() budgetChanged = new EventEmitter<void>();
   @Output() roleStatsChanged = new EventEmitter<any>();
   roleStats: {
     [key: string]: { totali: number; staffati: number; disponibili: number }
@@ -108,6 +109,7 @@ export class EmployeeComponent implements OnInit {
         console.log('assunzione completata ', response);
         // After hiring, refresh the employee list to reflect changes
         this.getEmployeesByGame(gameId);
+        this.budgetChanged.emit();
       },
       error: (err) => {
         console.error('errore assunzione ', err);
