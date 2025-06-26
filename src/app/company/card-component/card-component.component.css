@@ -1,6 +1,6 @@
 .card {
     background: #F9F9F9;
-    border-radius: 16px;
+    border-radius: 25px;
     padding: 24px;
     max-width: 320px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -78,8 +78,8 @@
 }
 
 .btn-container {
+    justify-content: space-between;
     display: flex;
-    justify-content: center;
     margin-top: 20px;
 }
 
@@ -89,7 +89,7 @@
     color: #666;
     padding: 12px 24px;
     border-radius: 25px;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -100,6 +100,7 @@
     align-items: center;
     justify-content: center;
     min-width: 120px;
+
 }
 
 .collaborate-btn:hover {
