@@ -6,6 +6,8 @@ import { HttpClient } from '@angular/common/http';
 import { TurnModel } from '../model/Turn';
 import { ActivatedRoute, Params } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { GameModel } from '../model/Game';
+import { GameService } from '../services/game/game.service';
 
 @Component({
   selector: 'app-table-budget',
@@ -16,15 +18,22 @@ import { CommonModule } from '@angular/common';
 export class TableBudgetComponent implements OnInit, OnChanges {
 
   currentTurn?: TurnModel;
+  currentBudget?: GameModel;
 /*   currentBudget?: number;
  */  gameId!: number
 
+ game: GameModel | null = null;
+
  @Input() updateTrigger!: number; 
+
+ @Input() updateBudget!: number;
+
+ @Input() budget!: number;
 
   /* createdTurn?: TurnModel;
   createdBudget?: TurnModel; */
 
-  constructor(private turnService: TurnService, private route: ActivatedRoute) { }
+  constructor(private turnService: TurnService, private route: ActivatedRoute, private gameService: GameService) { }
 
 
   ngOnInit(): void {
@@ -33,6 +42,7 @@ export class TableBudgetComponent implements OnInit, OnChanges {
       if (idFromRoute) {
         this.gameId = +idFromRoute;
         this.getTurns();
+        this.loadGame(this.gameId);
       }
     })
   }
@@ -40,6 +50,7 @@ export class TableBudgetComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
       if(changes['updateTrigger'] && !changes['updateTrigger'].firstChange) {
         this.getTurns();
+        this.loadGame(this.gameId);
       }
   }
 
@@ -60,6 +71,21 @@ export class TableBudgetComponent implements OnInit, OnChanges {
       }
     })
   }
+
+  loadGame(id: number): void {
+    this.gameService.getGameById(id).subscribe({
+      next: (g) => {
+        this.game = g;
+        this.budget = g.budget;
+        console.log('game caricato ', g);
+      },
+      error: (err) => {
+        console.error('errore caricamento game ', err);
+      }
+    })
+  }
+
+  
 
 
   //TODO
