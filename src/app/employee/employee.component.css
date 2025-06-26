@@ -2,9 +2,11 @@
   display: flex;
   justify-content: flex-end;
   position: absolute;
-  top: 650px; /* Sostituisce margin-top: -900px */
-  right: 60px; /* Sostituisce margin-right: 60px */
-  z-index: 10; /* Opzionale: per controllare la sovrapposizione */
+  top: 650px;
+  /* Sostituisce margin-top: -900px */
+  right: -10px;
+  z-index: 10;
+  /* Opzionale: per controllare la sovrapposizione */
 }
 
 table {
@@ -28,7 +30,7 @@ thead th {
 
 tbody th {
   background-color: #f9f9f9;
-  text-align: left;
+  text-align: center;
 }
 
 /* TODO BTN ALLINEARE */
@@ -41,77 +43,72 @@ tbody th {
 }
 
 .btn-manager {
-    background-color: transparent;
-    border: 2px solid #666;
-    color: #666;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 120px;
+
+  color: #666;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px;
 
 }
 
 .btn-manager:hover {
-    background-color: #666;
-    color: white;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #666;
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 
 .btn-senior {
-    background-color: transparent;
-    border: 2px solid #666;
-    color: #666;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 120px;
+  color: #666;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px;
 
 }
 
 .btn-senior:hover {
-    background-color: #666;
-    color: white;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #666;
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .btn-consultant {
-    background-color: transparent;
-    border: 2px solid #666;
-    color: #666;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 120px;
+  color: #666;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px;
 
 }
 
 .btn-consultant:hover {
-    background-color: #666;
-    color: white;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #666;
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }

@@ -12,6 +12,7 @@
                 <th>Totali</th>
                 <th>Staffing</th>
                 <th>Disponibili</th>
+                <th>ASSUMI</th>
             </tr>
             <tr>
 
@@ -26,6 +27,10 @@
                     {{roleStats["Manager"].disponibili}}
 
                 </td>
+                <td><button class="btn-manager" [disabled]="isHiring" (click)="hireEmployees('Manager', currentGameId)">
+                        +
+                    </button>
+                </td>
             </tr>
             <tr>
                 <th>SENIOR</th>
@@ -37,6 +42,10 @@
                 </td>
                 <td class="Senior">
                     {{roleStats["Senior"].disponibili}}
+                </td>
+                <td><button class="btn-senior" [disabled]="isHiring" (click)="hireEmployees('Senior', currentGameId)">
+                        +
+                    </button>
                 </td>
             </tr>
             <tr>
@@ -50,20 +59,19 @@
                 <td class="Consultant">
                     {{roleStats["Consultant"].disponibili}}
                 </td>
+                <td>
+                    <button class="btn-consultant" [disabled]="isHiring"
+                        (click)="hireEmployees('Consultant', currentGameId)">
+                        +
+                    </button>
+                </td>
             </tr>
         </tbody>
     </table>
     <div class="assunzione-container">
-        <button class="btn-manager" [disabled]="isHiring" (click)="hireEmployees('Manager', currentGameId)">
-            Assumi Manager
-        </button>
 
-        <button class="btn-senior" [disabled]="isHiring" (click)="hireEmployees('Senior', currentGameId)">
-            Assumi Senior
-        </button>
 
-        <button class="btn-consultant" [disabled]="isHiring" (click)="hireEmployees('Consultant', currentGameId)">
-            Assumi Consultant
-        </button>
+
+
     </div>
 </div>
