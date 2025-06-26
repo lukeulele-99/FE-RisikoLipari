@@ -102,6 +102,7 @@ export class GameComponent implements OnInit {
 
     onBudgetChanged() {
       this.budgetUpdateTrigger++;
+      console.log('budget update trigger ', this.budgetUpdateTrigger);
     }
 
   

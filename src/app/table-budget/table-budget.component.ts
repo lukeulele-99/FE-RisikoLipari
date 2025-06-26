@@ -22,13 +22,13 @@ export class TableBudgetComponent implements OnInit, OnChanges {
 /*   currentBudget?: number;
  */  gameId!: number
 
- game: GameModel | null = null;
+  game: GameModel | null = null;
 
- @Input() updateTrigger!: number; 
+  @Input() updateTrigger!: number;
 
- @Input() updateBudget!: number;
+  @Input() updateBudget!: number;
 
- @Input() budget!: number;
+  @Input() budget!: number;
 
   /* createdTurn?: TurnModel;
   createdBudget?: TurnModel; */
@@ -48,10 +48,11 @@ export class TableBudgetComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-      if(changes['updateTrigger'] && !changes['updateTrigger'].firstChange) {
-        this.getTurns();
-        this.loadGame(this.gameId);
-      }
+    if ((changes['updateTrigger'] && !changes['updateTrigger'].firstChange) ||
+      (changes['updateBudget'] && !changes['updateBudget'].firstChange)) {
+      this.getTurns();
+      this.loadGame(this.gameId);
+    }
   }
 
 
@@ -85,7 +86,7 @@ export class TableBudgetComponent implements OnInit, OnChanges {
     })
   }
 
-  
+
 
 
   //TODO
