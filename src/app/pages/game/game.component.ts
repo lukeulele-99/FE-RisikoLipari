@@ -22,7 +22,7 @@ import { TableBudgetComponent } from "../../table-budget/table-budget.component"
 
 @Component({
   selector: 'app-game',
-  imports: [MapComponent, CompanyComponent, CommonModule, EmployeeComponent, CardComponentComponent, TableBudgetComponent],
+  imports: [MapComponent, CompanyComponent, CommonModule, EmployeeComponent, CardComponentComponent, TableBudgetComponent, NavbarComponent],
   templateUrl: './game.component.html',
   styleUrl: './game.component.css'
 })
