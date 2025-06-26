@@ -12,7 +12,9 @@ html {
 
 
 .add-turn {
-    margin-left: 1070px;
+    position: absolute;
+    left: 1100px;
+    top: 475px;
     background-color: transparent;
     border: 2px solid #666;
     color: #666;
@@ -29,7 +31,6 @@ html {
     align-items: center;
     justify-content: center;
     min-width: 120px;
-    margin-top: -250px;
 }
 
 .add-turn:hover {
