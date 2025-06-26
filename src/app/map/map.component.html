@@ -191,6 +191,6 @@
   </g>
 </svg>
 
-<app-card-component *ngIf="selectedCompanyId !== null" [companyId]="selectedCompanyId"></app-card-component>
+<app-card-component *ngIf="selectedCompanyId !== null" [companyId]="selectedCompanyId" (statusChanged)="onStatusChanged($event)"></app-card-component>
         
 <!-- TRENTINO (ID) -->

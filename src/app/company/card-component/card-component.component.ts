@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CompanyService } from '../../services/company/company.service';
 import { CompanyModel } from '../../model/Company';
 import { CommonModule } from '@angular/common';
@@ -18,6 +18,8 @@ import { OnChanges, SimpleChanges } from '@angular/core';
 export class CardComponentComponent implements OnChanges{
 
   @Input() companyId: number | null = null;
+
+  @Output() statusChanged = new EventEmitter<string>();
 
   company?: CompanyModel
 
@@ -52,7 +54,7 @@ export class CardComponentComponent implements OnChanges{
     this.companyService.getCompany(id).subscribe({
       next: c => {
         this.company = c;
-
+        this.statusChanged.emit(c.status);
       },
       error: err => console.error('errore caricamento companyId ', err)
     });
@@ -64,6 +66,7 @@ export class CardComponentComponent implements OnChanges{
       next: (c) => {
         this.company = c;
         console.log(this.company?.status);
+        this.statusChanged.emit(c.status);
         this.companyService.emitNewCollaboration(c);
       },
       error: (error) => {

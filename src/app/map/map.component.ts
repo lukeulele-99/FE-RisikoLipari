@@ -22,6 +22,8 @@ export class MapComponent implements OnInit{
 
   selectedCompanyId: number | null = null;
 
+  companyStatus : string = '';
+
   constructor(private companyService: CompanyService) { }
 
   ngOnInit(): void {
@@ -107,6 +109,11 @@ export class MapComponent implements OnInit{
   "Engineering-Calabria": "Engineering-Calabria",
   "Engineering-Sicilia": "Engineering-Sicilia"
 };
+
+  onStatusChanged(newStatus: string) {
+    console.log('status ricevuto dal figlio card ', newStatus);
+    this.companyStatus = newStatus;
+  }
 
   isSelected(nodeId: string) {
     const companyName = this.nodeIdToCompanyName[nodeId];
