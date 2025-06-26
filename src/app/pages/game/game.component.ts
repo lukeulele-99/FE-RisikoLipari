@@ -83,22 +83,18 @@ export class GameComponent implements OnInit {
     /* this.employeeService.getEmployees(); */
   }
 
- /*  getGames(): void {
+   /* getGames(): void {
     this.gameService.getGames().subscribe({
-      next: (response) => {
-        console.log('response', response)
-        if (Array.isArray(response) && response.length > 0) {
-          this.games = response;
-        } else {
-          this.games = [];
-        }
+      next: (g) => {
+        console.log('response', g)
+        this.games = g
       },
       error: (error) => {
         console.error('error: ', error)
         this.games = [];
       }
     })
-  } */
+  }  */
 
     onBudgetChanged() {
       this.budgetUpdateTrigger++;
