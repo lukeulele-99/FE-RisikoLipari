@@ -110,13 +110,14 @@ export class MapComponent implements OnInit{
 
   isSelected(nodeId: string) {
     const companyName = this.nodeIdToCompanyName[nodeId];
-    //const companyStatus = this.companyColors[nodeId];
+    /* const companyStatus = this.companyColors[nodeId]; */
     const matchedCompany = this.companiesInGame.find(c => c.name === companyName);
-    //const matchedCompanyStatus = this.companiesInGame.find(c => c.status === companyStatus);
+    /* const matchedCompanyStatus = this.companiesInGame.find(c => c.status === companyStatus); */
 
     if (matchedCompany) {
       this.selectedCompanyId = matchedCompany.id;
       this.popup.companyId = matchedCompany.id;
+      /* this.popup.companyId = matchedCompanyStatus.id; */
       this.popup.show();
 
     } else {

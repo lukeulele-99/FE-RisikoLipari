@@ -25,9 +25,21 @@
 .status-indicator {
     width: 16px;
     height: 16px;
-    background-color: #4CAF50;
     border-radius: 3px;
     flex-shrink: 0;
+}
+
+.status-indicator-available {
+    background-color: #4CAF50;
+}
+.status-indicator-unavailable {
+    background-color: red;
+}
+.status-indicator-collab {
+    background-color: blue;
+}
+.status-indicator-endCollab {
+    background-color: aqua;
 }
 
 .company-name {
