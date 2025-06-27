@@ -1,15 +1,14 @@
-
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #034f84; 
+    background-color: #034f84;
     padding: 20px 20px;
     border-radius: 5px;
     font-family: Arial, sans-serif;
     font-weight: bold;
     font-size: 18px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     margin-left: -9px;
     margin-right: -9px;
     margin-top: -9px;
@@ -29,22 +28,17 @@
 .navbar .buttons button {
     background-color: white;
     border: none;
-    border-radius: 999px; 
+    border-radius: 999px;
     padding: 8px 20px;
     cursor: pointer;
     font-weight: bold;
     font-size: 14px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 
 .navbar .buttons button:hover {
     background-color: #e0e0e0;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-}
-
-#title-nav:hover {
-  cursor: pointer;
-  text-decoration-line: underline;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
