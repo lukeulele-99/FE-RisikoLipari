@@ -5,14 +5,18 @@
     max-width: 320px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border: 1px solid #e0e0e0;
-    position: absolute; /* Cambiato da relative ad absolute */
-    top: 150px; /* Sostituisce margin-top: -700px */
-    left: 1020px; /* Sostituisce margin-left: 540px */
+    position: absolute;
+    /* Cambiato da relative ad absolute */
+    top: 150px;
+    /* Sostituisce margin-top: -700px */
+    left: 1020px;
+    /* Sostituisce margin-left: 540px */
     padding-left: 30px;
     text-transform: uppercase;
     font-weight: bold;
     font-family: Arial, sans-serif;
-    z-index: 10; /* Opzionale: per controllare la sovrapposizione */
+    z-index: 10;
+    /* Opzionale: per controllare la sovrapposizione */
 }
 
 .header {
@@ -32,12 +36,15 @@
 .status-indicator-available {
     background-color: #4CAF50;
 }
+
 .status-indicator-unavailable {
     background-color: red;
 }
+
 .status-indicator-collab {
     background-color: blue;
 }
+
 .status-indicator-endCollab {
     background-color: aqua;
 }
@@ -114,3 +121,9 @@
     transform: translateY(0);
 }
 
+.collaborate-btn:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+    opacity: 0.6;
+}

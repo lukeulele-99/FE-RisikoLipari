@@ -15,7 +15,7 @@ import { OnChanges, SimpleChanges } from '@angular/core';
   templateUrl: './card-component.component.html',
   styleUrl: './card-component.component.css'
 })
-export class CardComponentComponent implements OnChanges{
+export class CardComponentComponent implements OnChanges {
 
   @Input() companyId: number | null = null;
 
@@ -25,9 +25,9 @@ export class CardComponentComponent implements OnChanges{
 
   visible: boolean = false;
 
- @Input() roleStats!: {
-  [key: string]: { totali: number; staffati: number; disponibili: number };
- };
+  @Input() roleStats!: {
+    [key: string]: { totali: number; staffati: number; disponibili: number };
+  };
 
 
   constructor(private companyService: CompanyService, private route: ActivatedRoute, private employeeService: EmployeeService) { }
@@ -48,7 +48,7 @@ export class CardComponentComponent implements OnChanges{
 
   }
 
-  
+
 
   show() {
     this.visible = true;
@@ -74,8 +74,13 @@ export class CardComponentComponent implements OnChanges{
       next: (c) => {
         this.company = c;
         console.log(this.company?.status);
-        this.statusChanged.emit(c.status);
-        this.companyService.emitNewCollaboration(c);
+        if (c.status == 'In Collaborazione') {
+          this.statusChanged.emit(c.status);
+          this.companyService.emitNewCollaboration(c);
+        } else {
+          alert('Impossibile collaborare con ' + c.name);
+        }
+
       },
       error: (error) => {
         console.error('errore avvio collaborazione ', error);
@@ -83,7 +88,7 @@ export class CardComponentComponent implements OnChanges{
     })
   }
 
-   /* canCollaborate(): boolean {
+  canCollaborate(): boolean {
     if (!this.company || !this.roleStats) return false;
 
     //controlla stato azienda
@@ -109,7 +114,7 @@ export class CardComponentComponent implements OnChanges{
     }
 
     return true;
-  } 
- */
+  }
+
 
 }
