@@ -5,11 +5,13 @@
 
 circle:hover {
   r: 10;
+  transition: 0.4s;
 }
 
 path:hover {
   fill: rgb(178, 167, 167);
   transition: 0.4s;
+  cursor: pointer;
 }
 
 .Disponibile {
