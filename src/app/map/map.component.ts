@@ -35,12 +35,10 @@ export class MapComponent implements OnInit{
   });
 }
 
-
-
   companyColors: { [key: string]: string } = {
     //PROVARE IGNORE CASE
-    //TODO aggiornamento colore con status back-end
-    //TODO DELOITTE MARCHE FIX, KMPG LIGURIA, PWC VALLE, ACCENTURE ED EY TRENTINO  
+    //TODO aggiornamento colore con status back-end (POTREBBE ESSERE CAMBIARE IL PARAMETRO?)
+  
     "Deloitte-Lombardia": "Disponibile",
     "Accenture-Lombardia": "Non-Disponibile",
     "EY-Lombardia": "Disponibile",
