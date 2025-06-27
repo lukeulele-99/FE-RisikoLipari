@@ -1,6 +1,8 @@
 <div class="card" style="font-weight: bold;" *ngIf="visible && company">
     <div class="header">
-        <div class="status-indicator" [ngClass]="{'status-indicator-available': company.status == 'Disponibile', 'status-indicator-unavailable': company.status == 'Non Disponibile', 'status-indicator-collab': company.status == 'In Collaborazione', 'status-indicator-endCollab': company.status == 'Fine collaborazione'}"></div>
+        <div class="status-indicator"
+            [ngClass]="{'status-indicator-available': company.status == 'Disponibile', 'status-indicator-unavailable': company.status == 'Non Disponibile', 'status-indicator-collab': company.status == 'In Collaborazione', 'status-indicator-endCollab': company.status == 'Fine collaborazione'}">
+        </div>
         <h2 class="company-name">{{company.name}}</h2>
     </div>
 
@@ -39,7 +41,6 @@
             (click)="startCollaboration(companyId!)">
             COLLABORA
         </button>
-        <button class="collaborate-btn" (click)="hide()">CHIUDI</button>
     </div>
 
 </div>

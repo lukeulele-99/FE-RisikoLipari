@@ -55,6 +55,10 @@ export class EmployeeComponent implements OnInit {
     })
   }
 
+  updateRoleStats() {
+    this.roleStatsChanged.emit(this.roleStats);
+  }
+
   getEmployeesByGame(gameId: number): void {
     this.employeeService.getEmployeeByGame(gameId).subscribe({
       next: (response) => {

@@ -101,6 +101,10 @@ export class GameComponent implements OnInit {
       console.log('budget update trigger ', this.budgetUpdateTrigger);
     }
 
+    onRoleStatsUpdated(updatedStats: any) {
+      this.roleStats = updatedStats;
+    }
+
   
 
   newTurn() {

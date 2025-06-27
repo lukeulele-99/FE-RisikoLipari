@@ -25,9 +25,28 @@ export class CardComponentComponent implements OnChanges {
 
   visible: boolean = false;
 
-  @Input() roleStats!: {
+  private _roleStats!: {
     [key: string]: { totali: number; staffati: number; disponibili: number };
   };
+
+  @Input()
+  set roleStats(value: {
+    [key: string]: { totali: number; staffati: number; disponibili: number };
+  }) {
+    this._roleStats = value;
+    this.tryUpdateStatus(); // ogni volta che cambia, controlla se è collaborabile
+  }
+
+  get roleStats() {
+    return this._roleStats;
+  }
+
+  tryUpdateStatus() {
+    if (this.company && this.company.status === 'Non Disponibile' && this.canCollaborate()) {
+      this.company.status = 'Disponibile';
+      this.statusChanged.emit(this.company.status);
+    }
+  }
 
 
   constructor(private companyService: CompanyService, private route: ActivatedRoute, private employeeService: EmployeeService) { }
