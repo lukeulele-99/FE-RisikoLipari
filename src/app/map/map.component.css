@@ -3,6 +3,10 @@
     
 }
 
+circle:hover {
+  r: 10;
+}
+
 path:hover {
   fill: rgb(178, 167, 167);
   transition: 0.4s;
