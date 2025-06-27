@@ -77,6 +77,7 @@ export class CardComponentComponent implements OnChanges {
         if (c.status == 'In Collaborazione') {
           this.statusChanged.emit(c.status);
           this.companyService.emitNewCollaboration(c);
+          alert('Collaborazione andata a buon fine! Selezionare nuovo turno per la prossima collaborazione')
         } else {
           alert('Impossibile collaborare con ' + c.name);
         }
