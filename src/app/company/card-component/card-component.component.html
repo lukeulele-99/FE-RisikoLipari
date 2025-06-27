@@ -35,11 +35,7 @@
         </div>
     </div>
     <div class="btn-container">
-        <button class="collaborate-btn" [disabled]="!company ||
-                   company.status !== 'Disponibile' ||
-                   (roleStats && roleStats['Manager'] && roleStats['Manager'].disponibili < (company.manager || 0)) ||
-                   (roleStats && roleStats['Senior'] && roleStats['Senior'].disponibili < (company.senior || 0)) ||
-                   (roleStats && roleStats['Consultant'] && roleStats['Consultant'].disponibili < (company.consultant || 0))"
+        <button class="collaborate-btn" [disabled]="!canCollaborate()"
             (click)="startCollaboration(companyId!)">
             COLLABORA
         </button>
