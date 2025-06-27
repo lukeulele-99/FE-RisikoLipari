@@ -1,7 +1,6 @@
 .Map {
-    padding-top: 5vw;
-    margin-bottom: 300px;
-    margin-left: 100px;
+  top: 50px;
+    
 }
 
 path:hover {
