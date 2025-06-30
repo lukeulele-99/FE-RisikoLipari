@@ -3,10 +3,12 @@
         <tr>
             <th id="budget-txt">BUDGET:</th>
             <th id="turn-txt">TURNO:</th>
+            <th id="azioni-txt">AZIONI:</th>
         </tr>
         <tr>
             <td id="budget-number" *ngIf="game">{{game.budget}}</td>
             <td id="turn-number" *ngIf="currentTurn !== undefined">{{currentTurn.turns}}</td>
+            <td><button (click)="nextTurnClicked.emit(true)">Nuovo turno</button></td>
         </tr>
     </tbody>
 </table>

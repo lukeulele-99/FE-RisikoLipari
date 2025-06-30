@@ -4,10 +4,10 @@
 <app-company></app-company>
 <app-card-component [roleStats]="roleStats"></app-card-component>
 
-<app-table-budget [updateBudget]="budgetUpdateTrigger" [updateTrigger]="turnUpdateTrigger"></app-table-budget>
+<app-table-budget (nextTurnClicked)="newTurn()" [updateBudget]="budgetUpdateTrigger" [updateTrigger]="turnUpdateTrigger"></app-table-budget>
 
 
-<button class="add-turn" (click)="newTurn()">Nuovo turno</button>
+<!-- <button class="add-turn" (click)="newTurn()">Nuovo turno</button> -->
 
 <!-- <div class="turn">
 

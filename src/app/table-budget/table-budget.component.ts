@@ -1,7 +1,7 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { TurnService } from '../services/turn/turn.service';
 import { Observable } from 'rxjs';
-import { Response } from 'express';
+import e, { Response } from 'express';
 import { HttpClient } from '@angular/common/http';
 import { TurnModel } from '../model/Turn';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -29,6 +29,7 @@ export class TableBudgetComponent implements OnInit, OnChanges {
   @Input() updateBudget!: number;
 
   @Input() budget!: number;
+  @Output() nextTurnClicked = new EventEmitter<any>(); 
 
   /* createdTurn?: TurnModel;
   createdBudget?: TurnModel; */
