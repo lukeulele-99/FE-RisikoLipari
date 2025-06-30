@@ -12,39 +12,39 @@ import { CompanyModel } from '../model/Company';
   templateUrl: './map.component.html',
   styleUrl: './map.component.css'
 })
-export class MapComponent implements OnInit{
+export class MapComponent implements OnInit {
 
   @Input() gameId!: number;
 
   @ViewChild(CardComponentComponent) popup!: CardComponentComponent;
 
-  companiesInGame : CompanyModel [] = [];
+  companiesInGame: CompanyModel[] = [];
 
   selectedCompanyId: number | null = null;
 
-  companyStatus : string = '';
+  nodeId: string= '';
 
   constructor(private companyService: CompanyService) { }
 
   ngOnInit(): void {
-  this.companyService.getCompaniesByGameId(this.gameId).subscribe({
-    next: (companies) => {
-      this.companiesInGame = Array.isArray(companies) ? companies : [companies];
-    },
-    error: (err) => console.error('Errore nel caricamento aziende per game:', err)
-  });
-}
+    this.companyService.getCompaniesByGameId(this.gameId).subscribe({
+      next: (companies) => {
+        this.companiesInGame = Array.isArray(companies) ? companies : [companies];
+      },
+      error: (err) => console.error('Errore nel caricamento aziende per game:', err)
+    });
+  }
 
   companyColors: { [key: string]: string } = {
     //PROVARE IGNORE CASE
     //TODO aggiornamento colore con status back-end (POTREBBE ESSERE CAMBIARE IL PARAMETRO?)
-  
-    "Deloitte-Lombardia": "Disponibile",
+
+    "Deloitte-Lombardia": "Non-Disponibile",
     "Accenture-Lombardia": "Non-Disponibile",
-    "EY-Lombardia": "Disponibile",
-    "Reply-Lombardia": "In-Collaborazione",
-    "PWC-Lombardia": "Disponibile",
-    "KPMG-Lombardia": "Disponibile",
+    "EY-Lombardia": "Non-Disponibile",
+    "Reply-Lombardia": "Non-Disponibile",
+    "PWC-Lombardia": "Non-Disponibile",
+    "KPMG-Lombardia": "Non-Disponibile",
     "KPMG-Piemonte": "Non-Disponibile",
     "EY-Trentino Alto Adige": "Non-Disponibile",
     "Accenture-Trentino Alto Adige": "Non-Disponibile",
@@ -70,55 +70,64 @@ export class MapComponent implements OnInit{
     "Accenture-Basilicata": "Non-Disponibile",
     "Deloitte-Puglia": "Non-Disponibile",
     "Engineering-Calabria": "Non-Disponibile",
-    "Engineering-Sicilia": "Non-Disponibile"
+    "Engineering-Sicilia": "Non-Disponibile",
   }
 
   nodeIdToCompanyName: { [key: string]: string } = {
-  "Deloitte-Lombardia": "Deloitte-Lombardia",
-  "Accenture-Lombardia": "Accenture-Lombardia",
-  "EY-Lombardia": "EY-Lombardia",
-  "Reply-Lombardia": "Reply-Lombardia",
-  "PWC-Lombardia": "PWC-Lombardia",
-  "KPMG-Lombardia": "KPMG-Lombardia",
-  "KPMG-Piemonte": "KPMG-Piemonte",
-  "EY-Trentino Alto Adige": "EY-Trentino Alto Adige",
-  "Accenture-Trentino Alto Adige": "Accenture-Trentino Alto Adige",
-  "PWC-Valle": "PWC-Valle",
-  "Reply-Friuli": "Reply-Friuli",
-  "Be Consulting-Friuli": "Be Consulting-Friuli",
-  "Accenture-Liguria": "Accenture-Liguria",
-  "Be Consulting-Sardegna": "Be Consulting-Sardegna",
-  "Engineering-Sardegna": "Engineering-Sardegna",
-  "Deloitte-Veneto": "Deloitte-Veneto",
-  "EY-Veneto": "EY-Veneto",
-  "EY-Emilia": "EY-Emilia",
-  "PWC-Emilia": "PWC-Emilia",
-  "Reply-Toscana": "Reply-Toscana",
-  "PWC-Lazio": "PWC-Lazio",
-  "EY-Lazio": "EY-Lazio",
-  "Accenture-Lazio": "Accenture-Lazio",
-  "Accenture-Molise": "Accenture-Molise",
-  "Deloitte-Marche": "Deloitte-Marche",
-  "Accenture-Umbria": "Accenture-Umbria",
-  "Reply-Abruzzo": "Reply-Abruzzo",
-  "Deloitte-Campania": "Deloitte-Campania",
-  "Accenture-Basilicata": "Accenture-Basilicata",
-  "Deloitte-Puglia": "Deloitte-Puglia",
-  "Engineering-Calabria": "Engineering-Calabria",
-  "Engineering-Sicilia": "Engineering-Sicilia"
-};
+    "Deloitte-Lombardia": "Deloitte-Lombardia",
+    "Accenture-Lombardia": "Accenture-Lombardia",
+    "EY-Lombardia": "EY-Lombardia",
+    "Reply-Lombardia": "Reply-Lombardia",
+    "PWC-Lombardia": "PWC-Lombardia",
+    "KPMG-Lombardia": "KPMG-Lombardia",
+    "KPMG-Piemonte": "KPMG-Piemonte",
+    "EY-Trentino Alto Adige": "EY-Trentino Alto Adige",
+    "Accenture-Trentino Alto Adige": "Accenture-Trentino Alto Adige",
+    "PWC-Valle": "PWC-Valle",
+    "Reply-Friuli": "Reply-Friuli",
+    "Be Consulting-Friuli": "Be Consulting-Friuli",
+    "Accenture-Liguria": "Accenture-Liguria",
+    "Be Consulting-Sardegna": "Be Consulting-Sardegna",
+    "Engineering-Sardegna": "Engineering-Sardegna",
+    "Deloitte-Veneto": "Deloitte-Veneto",
+    "EY-Veneto": "EY-Veneto",
+    "EY-Emilia": "EY-Emilia",
+    "PWC-Emilia": "PWC-Emilia",
+    "Reply-Toscana": "Reply-Toscana",
+    "PWC-Lazio": "PWC-Lazio",
+    "EY-Lazio": "EY-Lazio",
+    "Accenture-Lazio": "Accenture-Lazio",
+    "Accenture-Molise": "Accenture-Molise",
+    "Deloitte-Marche": "Deloitte-Marche",
+    "Accenture-Umbria": "Accenture-Umbria",
+    "Reply-Abruzzo": "Reply-Abruzzo",
+    "Deloitte-Campania": "Deloitte-Campania",
+    "Accenture-Basilicata": "Accenture-Basilicata",
+    "Deloitte-Puglia": "Deloitte-Puglia",
+    "Engineering-Calabria": "Engineering-Calabria",
+    "Engineering-Sicilia": "Engineering-Sicilia"
+  };
 
   onStatusChanged(newStatus: string) {
     console.log('status ricevuto dal figlio card ', newStatus);
-    this.companyStatus = newStatus;
+
+    if (newStatus == "In Collaborazione") {
+      this.companyColors[this.nodeId] = 'In-Collaborazione';
+    } else if (newStatus == "Non Disponibile" ) {
+      this.companyColors[this.nodeId] = 'Non-Disponibile' 
+    } else if (newStatus == 'Fine Collaborazione') {
+      this.companyColors[this.nodeId] = 'Fine-Collaborazione'
+    } else {
+      this.companyColors[this.nodeId] = newStatus;
+    }
+ 
   }
 
   isSelected(nodeId: string) {
+    this.nodeId = nodeId
     const companyName = this.nodeIdToCompanyName[nodeId];
-    /* const companyStatus = this.companyColors[nodeId]; */
     const matchedCompany = this.companiesInGame.find(c => c.name === companyName);
     /* const matchedCompanyStatus = this.companiesInGame.find(c => c.status === companyStatus); */
-
     if (matchedCompany) {
       this.selectedCompanyId = matchedCompany.id;
       this.popup.companyId = matchedCompany.id;
