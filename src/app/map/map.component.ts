@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { CardComponentComponent } from '../company/card-component/card-component.component';
 import { CommonModule } from '@angular/common';
 import { CompanyService } from '../services/company/company.service';
@@ -17,7 +17,7 @@ export class MapComponent implements OnInit {
 
   @Input() gameId!: number;
 
-  @ViewChild(CardComponentComponent) popup!: CardComponentComponent;
+   @ViewChild(CardComponentComponent) popup!: CardComponentComponent; 
 
   companiesInGame: CompanyModel[] = [];
 
@@ -26,6 +26,10 @@ export class MapComponent implements OnInit {
   nodeId: string = '';
 
   @Output() companySelected = new EventEmitter<number>();
+
+  @Input() roleStats!: {
+    [key: string]: { totali: number; staffati: number; disponibili: number };
+  };
 
   constructor(private companyService: CompanyService) { }
 
@@ -53,6 +57,14 @@ export class MapComponent implements OnInit {
 
 
   }
+
+  /* ngAfterViewInit(): void {
+    if (this.popup) {
+      console.log('Popup inizializzato correttamente:', this.popup);
+    } else {
+      console.error('Popup non inizializzato');
+    }
+  } */
 
   companyColors: { [key: string]: string } = {
     //PROVARE IGNORE CASE

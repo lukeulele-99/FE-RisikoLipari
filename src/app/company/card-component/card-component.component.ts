@@ -25,21 +25,15 @@ export class CardComponentComponent implements OnChanges {
 
   visible: boolean = false;
 
-  private _roleStats!: {
+  /* private _roleStats!: {
     [key: string]: { totali: number; staffati: number; disponibili: number };
-  };
+  }; */
 
-  @Input()
-  set roleStats(value: {
-    [key: string]: { totali: number; staffati: number; disponibili: number };
-  }) {
-    this._roleStats = value;
-    this.tryUpdateStatus(); // ogni volta che cambia, controlla se è collaborabile
-  }
+  @Input() roleStats!: { [key: string]: { totali: number; staffati: number; disponibili: number } };
 
-  get roleStats() {
+  /* get roleStats() {
     return this._roleStats;
-  }
+  } */
 
   tryUpdateStatus() {
 
@@ -66,7 +60,7 @@ export class CardComponentComponent implements OnChanges {
 
     if (this.companyId !== null) {
       this.getCompany(this.companyId);
-    }
+    } 
 
     /* if(this.company && this.roleStats && this.company.status == 'Non Disponibile') {
       if(this.canCollaborate()) {
@@ -101,11 +95,11 @@ export class CardComponentComponent implements OnChanges {
 
   startCollaboration(id: number) {
 
-    if (!this.canCollaborate()) {
+    /* if (!this.canCollaborate()) {
       console.warn('Impossibile collaborare: azienda non disponibile o dipendenti non sufficienti');
       alert("Impossibile collaborare: azienda non disponibile o dipendenti non sufficienti");
       return;
-    }
+    } */
 
     this.companyService.startCollaboration(id).subscribe({
       next: (c) => {
@@ -125,6 +119,8 @@ export class CardComponentComponent implements OnChanges {
         console.error('errore avvio collaborazione ', error);
       }
     })
+
+    
   }
 
   canCollaborate(): boolean {
