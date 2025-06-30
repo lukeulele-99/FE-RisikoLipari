@@ -18,6 +18,7 @@ import { EmployeeService } from '../../services/employee/employee.service';
 import { CardComponentComponent } from "../../company/card-component/card-component.component";
 import { Response } from '../../Response';
 import { TableBudgetComponent } from "../../table-budget/table-budget.component";
+import { CompanyModel } from '../../model/Company';
 
 
 @Component({

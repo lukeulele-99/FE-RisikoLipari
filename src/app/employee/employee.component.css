@@ -2,7 +2,7 @@
   display: flex;
   justify-content: flex-end;
   position: absolute;
-  top: 650px;
+  top: 290px;
   /* Sostituisce margin-top: -900px */
   right: -10px;
   z-index: 10;

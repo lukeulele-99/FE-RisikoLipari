@@ -22,7 +22,7 @@ export class MapComponent implements OnInit {
 
   selectedCompanyId: number | null = null;
 
-  nodeId: string= '';
+  nodeId: string = '';
 
   constructor(private companyService: CompanyService) { }
 
@@ -30,9 +30,25 @@ export class MapComponent implements OnInit {
     this.companyService.getCompaniesByGameId(this.gameId).subscribe({
       next: (companies) => {
         this.companiesInGame = Array.isArray(companies) ? companies : [companies];
+        this.companiesInGame.forEach(company => {
+          const nodeName = company.name;
+          if (company.status === "Disponibile") {
+            this.companyColors[nodeName] = "Disponibile";
+          } else if (company.status === "In Collaborazione") {
+            this.companyColors[nodeName] = "In-Collaborazione";
+          } else if (company.status === "Non Disponibile") {
+            this.companyColors[nodeName] = "Non-Disponibile";
+          } else {
+            this.companyColors[nodeName] = company.status ?? '';
+          }
+        });
+
+        this.onStatusChanged(this.nodeId);
       },
       error: (err) => console.error('Errore nel caricamento aziende per game:', err)
     });
+
+
   }
 
   companyColors: { [key: string]: string } = {
@@ -113,14 +129,14 @@ export class MapComponent implements OnInit {
 
     if (newStatus == "In Collaborazione") {
       this.companyColors[this.nodeId] = 'In-Collaborazione';
-    } else if (newStatus == "Non Disponibile" ) {
-      this.companyColors[this.nodeId] = 'Non-Disponibile' 
+    } else if (newStatus == "Non Disponibile") {
+      this.companyColors[this.nodeId] = 'Non-Disponibile'
     } else if (newStatus == 'Fine Collaborazione') {
       this.companyColors[this.nodeId] = 'Fine-Collaborazione'
     } else {
       this.companyColors[this.nodeId] = newStatus;
     }
- 
+
   }
 
   isSelected(nodeId: string) {
