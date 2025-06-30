@@ -43,9 +43,8 @@ tbody th {
 }
 
 .btn-manager {
-
-  color: #666;
-  font-size: 14px;
+  color: #f2f2f2;
+  background-color: green;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -56,19 +55,22 @@ tbody th {
   align-items: center;
   justify-content: center;
   min-width: 120px;
+  border-radius: 25px;
+  border: solid 2px green;
 
 }
 
 .btn-manager:hover {
-  background-color: #666;
-  color: white;
+  background-color: #f2f2f2;
+  color: green;
   transform: translateY(-1px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 
 .btn-senior {
-  color: #666;
+  color: #f2f2f2;
+  background-color: green;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
@@ -80,18 +82,20 @@ tbody th {
   align-items: center;
   justify-content: center;
   min-width: 120px;
-
+  border-radius: 25px;
+  border: solid 2px green;
 }
 
 .btn-senior:hover {
-  background-color: #666;
-  color: white;
+  background-color: #f2f2f2;
+  color: green;
   transform: translateY(-1px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .btn-consultant {
-  color: #666;
+  color: #f2f2f2;
+  background-color: green;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
@@ -103,12 +107,14 @@ tbody th {
   align-items: center;
   justify-content: center;
   min-width: 120px;
+  border-radius: 25px;
+  border: solid 2px green;
 
 }
 
 .btn-consultant:hover {
-  background-color: #666;
-  color: white;
+  background-color: #f2f2f2;
+  color: green;
   transform: translateY(-1px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }

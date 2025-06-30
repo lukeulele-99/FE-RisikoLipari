@@ -31,3 +31,29 @@
     font-weight: bold;
     color: #333;
 }
+
+#add-turn {
+    background-color: green;
+    border: 2px solid green;
+    color: #f2f2f2;
+    padding: 10px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    min-width: 120px;
+}
+
+#add-turn:hover {
+    background-color: #f2f2f2;
+    color: green;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#add-turn:active {
+    transform: translateY(0);
+}

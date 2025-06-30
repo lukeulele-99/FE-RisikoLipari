@@ -8,7 +8,7 @@
         <tr>
             <td id="budget-number" *ngIf="game">{{game.budget}}</td>
             <td id="turn-number" *ngIf="currentTurn !== undefined">{{currentTurn.turns}}</td>
-            <td><button (click)="nextTurnClicked.emit(true)">Nuovo turno</button></td>
+            <td><button id="add-turn" (click)="nextTurnClicked.emit(true)">Nuovo turno</button></td>
         </tr>
     </tbody>
 </table>
