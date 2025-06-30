@@ -39,12 +39,12 @@ export class MapComponent implements OnInit {
     //PROVARE IGNORE CASE
     //TODO aggiornamento colore con status back-end (POTREBBE ESSERE CAMBIARE IL PARAMETRO?)
 
-    "Deloitte-Lombardia": "Non-Disponibile",
+    "Deloitte-Lombardia": "Disponibile",
     "Accenture-Lombardia": "Non-Disponibile",
-    "EY-Lombardia": "Non-Disponibile",
-    "Reply-Lombardia": "Non-Disponibile",
-    "PWC-Lombardia": "Non-Disponibile",
-    "KPMG-Lombardia": "Non-Disponibile",
+    "EY-Lombardia": "Disponibile",
+    "Reply-Lombardia": "In-Collaborazione",
+    "PWC-Lombardia": "Disponibile",
+    "KPMG-Lombardia": "Disponibile",
     "KPMG-Piemonte": "Non-Disponibile",
     "EY-Trentino Alto Adige": "Non-Disponibile",
     "Accenture-Trentino Alto Adige": "Non-Disponibile",
