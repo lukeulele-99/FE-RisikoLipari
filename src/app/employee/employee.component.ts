@@ -49,6 +49,8 @@ export class EmployeeComponent implements OnInit {
           this.roleStats['Manager'].disponibili -= company.manager;
           this.roleStats['Senior'].disponibili -= company.senior;
           this.roleStats['Consultant'].disponibili -= company.consultant;
+
+          this.updateRoleStats();
         }
 
       }

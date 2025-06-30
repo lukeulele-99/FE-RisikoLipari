@@ -37,7 +37,7 @@
         </div>
     </div>
     <div class="btn-container">
-        <button class="collaborate-btn" 
+        <button class="collaborate-btn" [disabled]="!canCollaborate()"
             (click)="startCollaboration(companyId!)">
             COLLABORA
         </button>

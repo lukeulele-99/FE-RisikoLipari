@@ -42,6 +42,12 @@ export class CardComponentComponent implements OnChanges {
   }
 
   tryUpdateStatus() {
+
+    if (!this.company && !this.roleStats) {
+      console.log('Skip update: company or roleStats not ready yet');
+      return;
+    }
+
     if (this.company && this.company.status === 'Non Disponibile' && this.canCollaborate()) {
       this.company.status = 'Disponibile';
       this.statusChanged.emit(this.company.status);
@@ -53,6 +59,10 @@ export class CardComponentComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
     console.log('companyId ricevuto ', this.companyId);
+
+    if (changes['roleStats']) {
+      console.log('roleStats aggiornato ', this.roleStats);
+    }
 
     if (this.companyId !== null) {
       this.getCompany(this.companyId);
@@ -82,6 +92,7 @@ export class CardComponentComponent implements OnChanges {
       next: c => {
         this.company = c;
         this.statusChanged.emit(c.status);
+        this.tryUpdateStatus();
       },
       error: err => console.error('errore caricamento companyId ', err)
     });
@@ -89,9 +100,17 @@ export class CardComponentComponent implements OnChanges {
 
 
   startCollaboration(id: number) {
+
+    if (!this.canCollaborate()) {
+      console.warn('Impossibile collaborare: azienda non disponibile o dipendenti non sufficienti');
+      alert("Impossibile collaborare: azienda non disponibile o dipendenti non sufficienti");
+      return;
+    }
+
     this.companyService.startCollaboration(id).subscribe({
       next: (c) => {
         this.company = c;
+        this.company.status = c.status;
         console.log(this.company?.status);
         if (c.status == 'In Collaborazione') {
           this.statusChanged.emit(c.status);
@@ -109,10 +128,12 @@ export class CardComponentComponent implements OnChanges {
   }
 
   canCollaborate(): boolean {
+    console.log('canCollaborate called, company:', this.company);
+    console.log('roleStats:', this.roleStats);
     if (!this.company || !this.roleStats) return false;
 
     //controlla stato azienda
-    if (this.company.status === 'In Collaborazione' || this.company.status === 'Non Disponibile') {
+    if (this.company.status === 'In Collaborazione') {
       return false;
     }
 

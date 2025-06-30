@@ -1,8 +1,8 @@
 <app-navbar></app-navbar>
-<app-map #popup [gameId]="gameId"></app-map>
+<app-map #popup [gameId]="gameId" (companySelected)="onCompanySelected($event)"></app-map>
 <app-employee (budgetChanged)="onBudgetChanged()" (roleStatsChanged)="onRoleStatsUpdated($event)"></app-employee>
 <app-company></app-company>
-<app-card-component [roleStats]="roleStats"></app-card-component>
+<app-card-component *ngIf="roleStats" [roleStats]="roleStats" [companyId]="selectedCompanyId"></app-card-component>
 
 <app-table-budget (nextTurnClicked)="newTurn()" [updateBudget]="budgetUpdateTrigger" [updateTrigger]="turnUpdateTrigger"></app-table-budget>
 

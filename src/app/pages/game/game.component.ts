@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NavbarComponent } from "../../navbar/navbar.component";
 import { MapComponent } from "../../map/map.component";
 import { CompanyComponent } from "../../company/company.component";
@@ -36,6 +36,7 @@ export class GameComponent implements OnInit {
   createdTurn?: any;
   turnUpdateTrigger: number = 0;
   budgetUpdateTrigger = 0;
+  selectedCompanyId: number | null = null;
 
   roleStats: {
     [key: string]: { totali: number; staffati: number; disponibili: number };
@@ -76,6 +77,8 @@ export class GameComponent implements OnInit {
       }
     })
 
+
+
     //leggere il parametro dell'id passato su user component
 
 
@@ -84,29 +87,36 @@ export class GameComponent implements OnInit {
     /* this.employeeService.getEmployees(); */
   }
 
-   /* getGames(): void {
-    this.gameService.getGames().subscribe({
-      next: (g) => {
-        console.log('response', g)
-        this.games = g
-      },
-      error: (error) => {
-        console.error('error: ', error)
-        this.games = [];
-      }
-    })
-  }  */
+  /* getGames(): void {
+   this.gameService.getGames().subscribe({
+     next: (g) => {
+       console.log('response', g)
+       this.games = g
+     },
+     error: (error) => {
+       console.error('error: ', error)
+       this.games = [];
+     }
+   })
+ }  */
 
-    onBudgetChanged() {
-      this.budgetUpdateTrigger++;
-      console.log('budget update trigger ', this.budgetUpdateTrigger);
-    }
+  onCompanySelected(id: number) {
+    this.selectedCompanyId = id
+  }
 
-    onRoleStatsUpdated(updatedStats: any) {
-      this.roleStats = updatedStats;
-    }
+  onBudgetChanged() {
+    this.budgetUpdateTrigger++;
+    console.log('budget update trigger ', this.budgetUpdateTrigger);
+  }
 
-  
+  onRoleStatsUpdated(updatedStats: {
+    [key: string]: { totali: number; staffati: number; disponibili: number };
+  }) {
+    console.log('Ricevuto aggiornamento roleStats dal figlio: ', updatedStats);
+    this.roleStats = { ...updatedStats };
+  }
+
+
 
   newTurn() {
 

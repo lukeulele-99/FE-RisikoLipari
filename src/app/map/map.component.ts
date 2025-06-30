@@ -1,8 +1,9 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { CardComponentComponent } from '../company/card-component/card-component.component';
 import { CommonModule } from '@angular/common';
 import { CompanyService } from '../services/company/company.service';
 import { CompanyModel } from '../model/Company';
+import { EventEmitter } from '@angular/core';
 
 
 
@@ -23,6 +24,8 @@ export class MapComponent implements OnInit {
   selectedCompanyId: number | null = null;
 
   nodeId: string = '';
+
+  @Output() companySelected = new EventEmitter<number>();
 
   constructor(private companyService: CompanyService) { }
 
@@ -149,6 +152,8 @@ export class MapComponent implements OnInit {
       this.popup.companyId = matchedCompany.id;
       /* this.popup.companyId = matchedCompanyStatus.id; */
       this.popup.show();
+
+      this.companySelected.emit(matchedCompany.id);
 
     } else {
       console.error('id azienda non trovato per ', nodeId);
