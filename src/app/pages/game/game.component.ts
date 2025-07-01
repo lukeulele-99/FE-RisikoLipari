@@ -19,6 +19,7 @@ import { CardComponentComponent } from "../../company/card-component/card-compon
 import { Response } from '../../Response';
 import { TableBudgetComponent } from "../../table-budget/table-budget.component";
 import { CompanyModel } from '../../model/Company';
+import { CompanyService } from '../../services/company/company.service';
 
 
 @Component({
@@ -53,7 +54,8 @@ export class GameComponent implements OnInit {
     private authService: AuthService,
     private turnService: TurnService,
     private employeeService: EmployeeService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private companyService: CompanyService
   ) { }
 
   ngOnInit(): void {
@@ -126,6 +128,7 @@ export class GameComponent implements OnInit {
         console.log('response ', response);
         this.turnUpdateTrigger++;
         this.onBudgetChanged();
+        this.companyService.emitRefreshCompanies(true);
         //TODO mapComponent.downloadCompanies
       },
       error: (error) => {

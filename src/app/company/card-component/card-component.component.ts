@@ -25,15 +25,7 @@ export class CardComponentComponent implements OnChanges {
 
   visible: boolean = false;
 
-  /* private _roleStats!: {
-    [key: string]: { totali: number; staffati: number; disponibili: number };
-  }; */
-
   @Input() roleStats!: { [key: string]: { totali: number; staffati: number; disponibili: number } };
-
-  /* get roleStats() {
-    return this._roleStats;
-  } */
 
   tryUpdateStatus() {
 
@@ -42,7 +34,7 @@ export class CardComponentComponent implements OnChanges {
       return;
     }
 
-    if (this.company && this.company.status === 'Non Disponibile' /* && this.canCollaborate() */) {
+    if (this.company && this.company.status === 'Non Disponibile'  && this.canCollaborate()) {
       this.company.status = 'Disponibile';
       this.statusChanged.emit(this.company.status);
     }
@@ -60,18 +52,9 @@ export class CardComponentComponent implements OnChanges {
 
     if (this.companyId !== null) {
       this.getCompany(this.companyId);
-    } 
-
-    /* if(this.company && this.roleStats && this.company.status == 'Non Disponibile') {
-      if(this.canCollaborate()) {
-        this.company.status = 'Disponibile';
-        this.statusChanged.emit(this.company.status); //avvisa padre
-      }
-    } */
+    }
 
   }
-
-
 
   show() {
     this.visible = true;
@@ -95,12 +78,6 @@ export class CardComponentComponent implements OnChanges {
 
   startCollaboration(id: number) {
 
-    /* if (!this.canCollaborate()) {
-      console.warn('Impossibile collaborare: azienda non disponibile o dipendenti non sufficienti');
-      alert("Impossibile collaborare: azienda non disponibile o dipendenti non sufficienti");
-      return;
-    } */
-
     this.companyService.startCollaboration(id).subscribe({
       next: (c) => {
         this.company = c;
@@ -110,7 +87,7 @@ export class CardComponentComponent implements OnChanges {
           this.statusChanged.emit(c.status);
           this.companyService.emitNewCollaboration(c);
           alert('Collaborazione andata a buon fine! Selezionare nuovo turno per la prossima collaborazione');
-        } 
+        }
 
       },
       error: (error) => {
@@ -118,7 +95,7 @@ export class CardComponentComponent implements OnChanges {
       }
     })
 
-    
+
   }
 
   canCollaborate(): boolean {

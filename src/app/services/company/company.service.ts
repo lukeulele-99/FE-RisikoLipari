@@ -40,4 +40,8 @@ export class CompanyService {
   emitNewCollaboration(c: CompanyModel) {
     this.newCollaborationSubject.next(c);
   }
+
+  emitRefreshCompanies(refresh: boolean) {
+    this.refreshCompaniesSubject.next(refresh);
+  }
 }

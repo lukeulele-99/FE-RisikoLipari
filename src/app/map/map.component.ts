@@ -23,7 +23,7 @@ export class MapComponent implements OnInit {
 
   selectedCompanyId: number | null = null;
 
-  nodeId: string = '';
+  nodeId: string = ''; 
 
   @Output() companySelected = new EventEmitter<number>();
 
