@@ -48,10 +48,6 @@ export class UserComponent implements OnInit {
 
 
   ngOnInit(): void {
-    //this.userService.usersUpdatedSubject.subscribe((usersDto) => {
-    //this.users = usersDto ? usersDto.map((dto: UserDTO) => this.mapUserDtoToUserModel(dto)) : [];
-    //});
-
     this.userService.getUsers().subscribe({
       next: (response) => {
         console.log('response', response)
@@ -122,10 +118,9 @@ export class UserComponent implements OnInit {
     })
   }
 
-  /* createGame() {
-    this.gameService.createGame();
-  } */
+ 
 
+  
   findUserByEmail(email: string): UserModel | undefined {
     return this.users.find(user => user.username === email);
   }
