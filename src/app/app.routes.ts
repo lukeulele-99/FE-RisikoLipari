@@ -3,7 +3,6 @@ import { UserComponent } from './pages/user/user.component';
 import { GameComponent } from './pages/game/game.component';
 import { AppComponent } from './app.component';
 import { RulesComponent } from './pages/rules/rules.component';
-import { TutorialComponent } from './pages/tutorial/tutorial.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { CompanyComponent } from './company/company.component';
 //import { authGuard } from './guards/auth.guard';
@@ -16,7 +15,6 @@ export const routes: Routes = [
     { path: 'company', component: CompanyComponent },
     { path: 'user', component: UserComponent },
     { path: 'rules', component: RulesComponent },
-    { path: 'tutorial', component: TutorialComponent },
     { path: 'employee', component: EmployeeComponent } //canActivate: [authGuard]},
     // { path: '**', component: PageNotFoundComponent } ROUTE 404
 

@@ -36,7 +36,7 @@
             <span class="info-value">{{company.expectedRevenue}}</span>
         </div>
     </div>
-    <div class="btn-container" *ngIf="company.status === 'In Collaborazione' || company.status === 'Fine collaborazione'; else btnVisibile">
+    <div class="btn-container" *ngIf="company.status === 'In Collaborazione' || company.status === 'Fine collaborazione' || company.status === 'Non Disponibile'; else btnVisibile">
         <button class="collaborate-btn" style="display: none;" (click)="startCollaboration(companyId!)">
             COLLABORA
         </button>
