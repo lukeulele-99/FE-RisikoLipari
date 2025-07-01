@@ -16,6 +16,8 @@ export class CompanyService {
   private putUrlCompCollab = '/api/company/collaborate';
 
   newCollaborationSubject = new BehaviorSubject<CompanyModel | null>(null);
+  
+  refreshCompaniesSubject = new BehaviorSubject<boolean | null>(null);
 
   constructor(private http: HttpClient) { }
 

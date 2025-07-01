@@ -17,7 +17,7 @@ export class MapComponent implements OnInit {
 
   @Input() gameId!: number;
 
-   @ViewChild(CardComponentComponent) popup!: CardComponentComponent; 
+  @ViewChild(CardComponentComponent) popup!: CardComponentComponent;
 
   companiesInGame: CompanyModel[] = [];
 
@@ -34,6 +34,12 @@ export class MapComponent implements OnInit {
   constructor(private companyService: CompanyService) { }
 
   ngOnInit(): void {
+    this.downloadCompanies();
+  }
+
+
+
+  downloadCompanies() {
     this.companyService.getCompaniesByGameId(this.gameId).subscribe({
       next: (companies) => {
         this.companiesInGame = Array.isArray(companies) ? companies : [companies];
@@ -54,17 +60,7 @@ export class MapComponent implements OnInit {
       },
       error: (err) => console.error('Errore nel caricamento aziende per game:', err)
     });
-
-
   }
-
-  /* ngAfterViewInit(): void {
-    if (this.popup) {
-      console.log('Popup inizializzato correttamente:', this.popup);
-    } else {
-      console.error('Popup non inizializzato');
-    }
-  } */
 
   companyColors: { [key: string]: string } = {
     //PROVARE IGNORE CASE

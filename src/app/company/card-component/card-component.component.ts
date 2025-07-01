@@ -42,7 +42,7 @@ export class CardComponentComponent implements OnChanges {
       return;
     }
 
-    if (this.company && this.company.status === 'Non Disponibile' && this.canCollaborate()) {
+    if (this.company && this.company.status === 'Non Disponibile' /* && this.canCollaborate() */) {
       this.company.status = 'Disponibile';
       this.statusChanged.emit(this.company.status);
     }

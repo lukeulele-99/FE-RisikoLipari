@@ -126,6 +126,7 @@ export class GameComponent implements OnInit {
         console.log('response ', response);
         this.turnUpdateTrigger++;
         this.onBudgetChanged();
+        //TODO mapComponent.downloadCompanies
       },
       error: (error) => {
         console.error('error ', error);
