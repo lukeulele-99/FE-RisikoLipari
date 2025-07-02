@@ -2,6 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { UserService } from '../services/user/user.service';
+import { GameService } from '../services/game/game.service';
 
 
 @Component({
@@ -13,7 +15,8 @@ import { AuthService } from '../services/auth.service';
 export class NavbarComponent {
     constructor(
       private router: Router,
-      private authService: AuthService
+      private authService: AuthService,
+      private gameService: GameService
     ) {}
 
 
@@ -44,6 +47,7 @@ export class NavbarComponent {
   goEmployes(): void {
     this.router.navigate(['/employee']);
   }
+
 }
 
  
