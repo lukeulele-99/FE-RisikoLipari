@@ -8,7 +8,12 @@
         <tr>
             <td id="budget-number" *ngIf="game">{{game.budget}}</td>
             <td id="turn-number" *ngIf="currentTurn !== undefined">{{currentTurn.turns}}</td>
-            <td><button id="add-turn" (click)="nextTurnClicked.emit(true)">Nuovo turno</button></td>
+            <td><button id="add-turn" *ngIf="game?.status == 'ended'; else visible" style="display: none;" (click)="nextTurnClicked.emit(true)">Nuovo turno</button></td>
+
+            <ng-template #visible>
+                <td><button id="add-turn" (click)="nextTurnClicked.emit(true)">Nuovo turno</button></td>
+            </ng-template>
+            <!-- <td><button id="add-turn" *ngIf="game?.status == 'ended'" (click)="nextTurnClicked.emit(true)">Nuovo turno</button></td> -->
         </tr>
     </tbody>
 </table>
