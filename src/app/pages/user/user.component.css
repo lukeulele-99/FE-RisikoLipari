@@ -1,5 +1,12 @@
 
+
+
+
 .register-container {
+    background-image: url(assets/images/Lipari.png);
+    background-position: center;
+    background-size:auto;
+    background-repeat: no-repeat;
     width: 350px;
     margin: 50px auto; 
     padding: 20px;
