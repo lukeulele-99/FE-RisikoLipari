@@ -117,6 +117,7 @@ export class EmployeeComponent implements OnInit {
         this.getEmployeesByGame(gameId);
         console.log('emit budget changed')
         this.budgetChanged.emit();
+        this.companyService.emitRefreshCompanies(true);
       },
       error: (err) => {
         console.error('errore assunzione ', err);

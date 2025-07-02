@@ -23,7 +23,7 @@ export class MapComponent implements OnInit {
 
   selectedCompanyId: number | null = null;
 
-  nodeId: string = ''; 
+  nodeId: string = '';
 
   @Output() companySelected = new EventEmitter<number>();
 
@@ -35,6 +35,11 @@ export class MapComponent implements OnInit {
 
   ngOnInit(): void {
     this.downloadCompanies();
+    this.companyService.refreshCompaniesSubject.subscribe({
+      next: () => {
+        this.downloadCompanies();
+      }
+    })
   }
 
 
@@ -45,18 +50,20 @@ export class MapComponent implements OnInit {
         this.companiesInGame = Array.isArray(companies) ? companies : [companies];
         this.companiesInGame.forEach(company => {
           const nodeName = company.name;
-          if (company.status === "Disponibile") {
+          if (company.status?.toLowerCase() == "disponibile") {
             this.companyColors[nodeName] = "Disponibile";
-          } else if (company.status === "In Collaborazione") {
+          } else if (company.status?.toLowerCase() == "in collaborazione") {
             this.companyColors[nodeName] = "In-Collaborazione";
-          } else if (company.status === "Non Disponibile") {
+          } else if (company.status?.toLowerCase() == "non disponibile") {
             this.companyColors[nodeName] = "Non-Disponibile";
+          } else if (company.status?.toLowerCase() == "fine collaborazione") {
+            this.companyColors[nodeName] = "Fine-Collaborazione";
           } else {
             this.companyColors[nodeName] = company.status ?? '';
           }
         });
 
-        this.onStatusChanged(this.nodeId);
+        this.refreshPopup();
       },
       error: (err) => console.error('Errore nel caricamento aziende per game:', err)
     });
@@ -166,6 +173,22 @@ export class MapComponent implements OnInit {
     } else {
       console.error('id azienda non trovato per ', nodeId);
     }
+  }
+  refreshPopup() {
+    if (this.nodeId.length > 0) {
+      const companyName = this.nodeIdToCompanyName[this.nodeId];
+      const matchedCompany = this.companiesInGame.find(c => c.name === companyName);
+      if (matchedCompany) {
+        this.selectedCompanyId = matchedCompany.id;
+        this.popup.companyId = matchedCompany.id;
+
+        this.companySelected.emit(matchedCompany.id);
+
+        this.popup.company = matchedCompany;
+
+      }
+    }
+
   }
 
 }
