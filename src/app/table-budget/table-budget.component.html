@@ -3,15 +3,17 @@
         <tr>
             <th id="budget-txt">BUDGET:</th>
             <th id="turn-txt">TURNO:</th>
-            <th id="azioni-txt">AZIONI:</th>
+            <th id="azioni-txt" *ngIf="game?.status == 'ongoing'; else finishText">AZIONI:</th>
+            <ng-template #finishText>
+                <th id="azioni-txt">Score:</th>
+            </ng-template>
         </tr>
         <tr>
             <td id="budget-number" *ngIf="game">{{game.budget}}</td>
             <td id="turn-number" *ngIf="currentTurn !== undefined">{{currentTurn.turns}}</td>
             <td>
-                <button id="add-turn" *ngIf="game?.status == 'ended'; else visible" style="display: none;"
-                    (click)="nextTurnClicked.emit(true)">Nuovo turno</button>
-
+                 <p *ngIf="game?.status == 'ended'; else visible">{{game?.score}}</p>
+        
                 <ng-template #visible>
                     <button id="add-turn" (click)="nextTurnClicked.emit(true)">Nuovo turno</button>
                 </ng-template>
