@@ -80,6 +80,9 @@ export class TableBudgetComponent implements OnInit, OnChanges {
         this.game = g;
         this.budget = g.budget;
         console.log('game caricato ', g);
+        if (g.status == "ended") {
+          alert("gioco terminato, il tuo score è " + g.score)
+        }
       },
       error: (err) => {
         console.error('errore caricamento game ', err);
