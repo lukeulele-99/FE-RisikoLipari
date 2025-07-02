@@ -55,6 +55,12 @@ export class EmployeeComponent implements OnInit {
 
       }
     })
+
+    this.companyService.refreshCompaniesSubject.subscribe({
+      next: () => {
+        this.getEmployeesByGame(this.currentGameId);
+      }
+    })
   }
 
   updateRoleStats() {

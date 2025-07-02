@@ -149,7 +149,7 @@ export class MapComponent implements OnInit {
       this.companyColors[this.nodeId] = 'In-Collaborazione';
     } else if (newStatus == "Non Disponibile") {
       this.companyColors[this.nodeId] = 'Non-Disponibile'
-    } else if (newStatus == 'Fine Collaborazione') {
+    } else if (newStatus == 'Fine collaborazione') {
       this.companyColors[this.nodeId] = 'Fine-Collaborazione'
     } else {
       this.companyColors[this.nodeId] = newStatus;
