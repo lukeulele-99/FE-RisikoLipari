@@ -1,34 +1,18 @@
-<!--Users:
-<ul *ngFor="let user of users">
-    <li>
-        {{user.username}}   //da togliere dopo
-    </li>
-</ul> -->
-<div class="register-container" *ngIf="isUserLoggedIn(); else register_form">
-    <!-- <h2>Ciao, {{currentUser.username}}</h2> -->
-
-    <h2>Benvenuto a Risiko Lipari! <!-- {{currentUser}} --> </h2>
-
-    <button id="start" type="submit" (click)="createGame()">Avvia partita</button>
-    <button id="logout"type="submit" (click)="exitGame()">Logout</button>
+<div class="register-container" *ngIf="!isUserLoggedIn(); else loggedInTemplate">
+    <h2>Registrazione Utente</h2>
+    <form [formGroup]="userForm" (ngSubmit)="addUser()">
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input id="email" formControlName="email" type="email">
+        </div>
+        <button type="submit">Registrati</button>
+    </form>
 </div>
 
-<ng-template #register_form>
+<ng-template #loggedInTemplate>
     <div class="register-container">
-        <h2>Registrazione Utente</h2>
-
-        <form [formGroup]="userForm">
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input id="email" formControlName="email" name="email" type="email" required
-                    placeholder="Inserisci email..." />
-            </div>
-
-            <button type="submit" (click)="addUser()">
-
-                Registrati / Accedi
-            </button>
-
-        </form>
+        <h2>Benvenuto a Risiko Lipari!</h2>
+        <button id="start" (click)="createGame()">Avvia partita</button>
+        <button id="logout" (click)="exitGame()">Logout</button>
     </div>
 </ng-template>
