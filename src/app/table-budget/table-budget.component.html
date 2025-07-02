@@ -12,7 +12,7 @@
             <td id="budget-number" *ngIf="game">{{game.budget}}</td>
             <td id="turn-number" *ngIf="currentTurn !== undefined">{{currentTurn.turns}}</td>
             <td>
-                 <p *ngIf="game?.status == 'ended'; else visible">{{game?.score}}</p>
+                 <span *ngIf="game?.status == 'ended'; else visible">{{game?.score}}</span>
         
                 <ng-template #visible>
                     <button id="add-turn" (click)="nextTurnClicked.emit(true)">Nuovo turno</button>
